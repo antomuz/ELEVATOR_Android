@@ -1,2 +1,0 @@
-include ':app'
-rootProject.name = "RobotArmH25-Remote"
