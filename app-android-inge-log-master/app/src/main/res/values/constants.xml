@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="MyPrefs">ev3_prefs</string>
+    <string name="EV3KEY">ev3_macAddress</string>
+</resources>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_connect">
+
+    <fragment
+        android:id="@+id/nav_connect"
+        android:name="com.example.robotarmh25_remote.ui.connect.ConnectFragment"
+        android:label="@string/menu_connect"
+        tools:layout="@layout/fragment_connect" />
+
+    <fragment
+        android:id="@+id/nav_remote"
+        android:name="com.example.robotarmh25_remote.ui.remote.RemoteFragment"
+        android:label="@string/menu_remote"
+        tools:layout="@layout/fragment_remote" />
+</navigation>

@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">RobotArmH25-Remote</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Pilotage du Robot ARM H25</string>
+    <string name="nav_header_subtitle">Menu principal</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="input_text_connect">Adresse MAC</string>
+    <string name="button_connect">Se connecter</string>
+
+    <string name="lever_bras">Lever</string>
+    <string name="baisser_bras">Baisser</string>
+    <string name="tourner_gauche">Gauche</string>
+    <string name="tourner_droit">Droite</string>
+    <string name="ouvrir_pince">Ouvrir pince</string>
+    <string name="fermer_pince">Fermer pince</string>
+
+    <string name="menu_connect">Connexion au robot</string>
+    <string name="menu_remote">Télécommande</string>
+</resources>
