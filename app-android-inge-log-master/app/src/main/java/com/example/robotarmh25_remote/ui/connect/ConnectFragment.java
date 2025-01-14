@@ -1,5 +1,6 @@
 package com.example.robotarmh25_remote.ui.connect;
 
+import com.example.robotarmh25_remote.BluetoothConnection;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -18,12 +19,16 @@ import com.example.robotarmh25_remote.R;
 
 public class ConnectFragment extends Fragment {
 
+    public static BluetoothConnection btCon;  // Declare as static if you need to access it from other fragments
+
     private ConnectViewModel connectViewModel;
 
     Context context;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
+        // Initialize btCon here or somewhere appropriate
+        btCon = new BluetoothConnection(); // Example initialization
 
         connectViewModel = new ViewModelProvider(this).get(ConnectViewModel.class);
         View root = inflater.inflate(R.layout.fragment_connect, container, false);

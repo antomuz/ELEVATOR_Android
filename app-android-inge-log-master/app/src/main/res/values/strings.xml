@@ -19,4 +19,8 @@
 
     <string name="menu_connect">Connexion au robot</string>
     <string name="menu_remote">Télécommande</string>
+    <string name="actions">Actions (maximum 5)</string>
+
+    <string name="menu_config">Configuration</string>
+    <string name="menu_liste">Liste</string>
 </resources>

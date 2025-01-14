@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.remote.ConfigFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#292929"
+        tools:context=".ui.remote.RemoteFragment">
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="70dp"
+            android:layout_marginLeft="70dp"
+            android:layout_marginTop="250dp"
+            android:shadowColor="#FFFFFF"
+            android:text="@string/actions"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#FFFFFF"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+            android:id="@+id/addLeftButton"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:layout_marginStart="76dp"
+            android:layout_marginLeft="76dp"
+            android:layout_marginTop="76dp"
+            android:background="@null"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_rotate_left_black_24dp"
+            android:tint="#9A9A9A"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+            android:id="@+id/addRightButton"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:layout_marginTop="76dp"
+            android:layout_marginEnd="76dp"
+            android:layout_marginRight="76dp"
+            android:background="@null"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_rotate_right_black_24dp"
+            android:tint="#9A9A9A"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+            android:id="@+id/addCloseButton"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:layout_marginTop="160dp"
+            android:layout_marginEnd="76dp"
+            android:layout_marginRight="76dp"
+            android:background="@null"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_close_fullscreen_black_24dp"
+            android:tint="#9A9A9A"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+            android:id="@+id/addOpenButton"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:layout_marginStart="76dp"
+            android:layout_marginLeft="76dp"
+            android:layout_marginTop="160dp"
+            android:background="@null"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_open_in_full_black_24dp"
+            android:tint="#9A9A9A"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+            android:id="@+id/addLiftButton"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:layout_marginTop="50dp"
+            android:background="@null"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_arrow_upward_black_24dp"
+            android:tint="#9A9A9A"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+            android:id="@+id/addLowerButton"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:layout_marginTop="130dp"
+            android:background="@null"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_arrow_downward_black_24dp"
+            android:tint="#9A9A9A"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.501"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/addScenarioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="651dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            android:text="Enregistrer"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <ListView
+            android:id="@+id/listview_item"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="45dp"
+            android:layout_marginLeft="45dp"
+            android:layout_marginTop="280dp"
+            android:layout_marginEnd="45dp"
+            android:layout_marginRight="45dp"
+            android:layout_marginBottom="85dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>

@@ -16,4 +16,9 @@
         android:name="com.example.robotarmh25_remote.ui.remote.RemoteFragment"
         android:label="@string/menu_remote"
         tools:layout="@layout/fragment_remote" />
+    <fragment
+        android:id="@+id/nav_config"
+        android:name="com.example.robotarmh25_remote.ui.remote.ConfigFragment"
+        android:label="@string/menu_config"
+        tools:layout="@layout/fragment_config" />
 </navigation>
