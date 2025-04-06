@@ -6,38 +6,67 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
-import com.example.robotarmh25_remote.data.RepositoryScenario.Scenario;
+import com.example.robotarmh25_remote.models.Action;
+import com.example.robotarmh25_remote.models.Gamme;
+import com.example.robotarmh25_remote.models.Scenario;
+import com.example.robotarmh25_remote.models.SelectedAction;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 public class DBHandler extends SQLiteOpenHelper {
 
     // creating a constant variables for our database.
-    // below variable is for our database name.
     private static final String DB_NAME = "EV3data";
+    private static final int DB_VERSION = 3;
 
-    // below int is our database version
-    private static final int DB_VERSION = 1;
+    // -----------------------------------------------------------------
+    // 1) Tables principales
+    // -----------------------------------------------------------------
+    // 1.1 Table Action
+    public static final String TABLE_ACTION = "ActionTable";
+    public static final String COL_ACTION_ID = "id_action";
+    public static final String COL_ACTION_NAME = "name";
 
-    // below variable is for our table name.
-    private static final String TABLE_NAME = "Scenario";
+    // 1.2 Table Gamme
+    public static final String TABLE_GAMME = "Gamme";
+    public static final String COL_GAMME_ID = "id_gamme";
+    public static final String COL_GAMME_NAME = "name";
 
-    // below variable is for our id column.
-    private static final String ID_COL = "id";
+    // 1.3 Table Scenario
+    public static final String TABLE_SCENARIO = "Scenario";
+    public static final String COL_SCENARIO_ID = "id_scenario";
+    public static final String COL_SCENARIO_NAME = "name";
+    public static final String COL_SCENARIO_DESC = "description";
 
-    // below variable is for our course name column
-    private static final String ACTION5_COL = "action5";
+    // -----------------------------------------------------------------
+    // 2) Tables de liaison
+    // -----------------------------------------------------------------
+    // 2.1 Table Gamme_Action
+    public static final String TABLE_GAMME_ACTION = "Gamme_Action";
+    // - Colonnes
+    public static final String COL_GA_GAMME_ID = "id_gamme";
+    public static final String COL_GA_ACTION_ID = "id_action";
+    public static final String COL_GA_PARAM = "parametre";           // valeur numérique (durée, vitesse...)
+    public static final String COL_GA_ORDRE = "ordre_execution";     // pour l'ordre d'exécution
 
-    // below variable is for our course name column
-    private static final String ACTION1_COL = "action1";
-    // below variable is for our course name column
-    private static final String ACTION2_COL = "action2";
-    // below variable is for our course name column
-    private static final String ACTION3_COL = "action3";
-    // below variable is for our course name column
-    private static final String ACTION4_COL = "action4";
-    // creating a constructor for our database handler.
+    // 2.2 Table Scenario_Gamme
+    public static final String TABLE_SCENARIO_GAMME = "Scenario_Gamme";
+    // - Colonnes
+    public static final String COL_SG_SCENARIO_ID = "id_scenario";
+    public static final String COL_SG_GAMME_ID = "id_gamme";
+    public static final String COL_SG_ORDRE = "ordre_scenario";      // ordre de la gamme dans le scénario
+
+
+    // -----------------------------------------------------------------
+    // 3) Table utilisateurs
+    // -----------------------------------------------------------------
+    private static final String TABLE_USERS = "Users";
+    private static final String USER_ID_COL = "user_id";
+    private static final String USERNAME_COL = "username";
+    private static final String PASSWORD_COL = "password";
+
     public DBHandler(Context context) {
         super(context, DB_NAME, null, DB_VERSION);
     }
@@ -45,138 +74,723 @@ public class DBHandler extends SQLiteOpenHelper {
     // below method is for creating a database by running a sqlite query
     @Override
     public void onCreate(SQLiteDatabase db) {
-        // on below line we are creating
-        // an sqlite query and we are
-        // setting our column names
-        // along with their data types.
-        String query = "CREATE TABLE " + TABLE_NAME + " ("
-                + ID_COL + " INTEGER PRIMARY KEY AUTOINCREMENT, "
-                + ACTION1_COL + " TEXT,"
-                + ACTION2_COL + " TEXT,"
-                + ACTION3_COL + " TEXT,"
-                + ACTION4_COL + " TEXT,"
-                + ACTION5_COL + " TEXT)";
+        // -----------------------------------------------------------------
+        // Création des tables principales
+        // -----------------------------------------------------------------
 
-        // at last we are calling a exec sql
-        // method to execute above sql query
-        db.execSQL(query);
-    }
+        // Table Action
+        String createActionTable = "CREATE TABLE IF NOT EXISTS " + TABLE_ACTION + " ("
+                + COL_ACTION_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+                + COL_ACTION_NAME + " TEXT NOT NULL"
+                + ");";
 
-    // this method is use to add new course to our sqlite database.
-    public void addNewScenario(Scenario actions) {
+        // Table Gamme
+        String createGammeTable = "CREATE TABLE IF NOT EXISTS " + TABLE_GAMME + " ("
+                + COL_GAMME_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+                + COL_GAMME_NAME + " TEXT"
+                + ");";
 
-        // on below line we are creating a variable for
-        // our sqlite database and calling writable method
-        // as we are writing data in our database.
-        SQLiteDatabase db = this.getWritableDatabase();
+        // Table Scenario
+        String createScenarioTable = "CREATE TABLE IF NOT EXISTS " + TABLE_SCENARIO + " ("
+                + COL_SCENARIO_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+                + COL_SCENARIO_NAME + " TEXT, "
+                + COL_SCENARIO_DESC + " TEXT"
+                + ");";
 
-        // on below line we are creating a
-        // variable for content values.
-        ContentValues values = new ContentValues();
+        // -----------------------------------------------------------------
+        // Création des tables de liaison
+        // -----------------------------------------------------------------
 
-        // on below line we are passing all values
-        // along with its key and value pair.
-        for (int i = 0; i<5; i++) {
-            Log.e("Bluetooth", (i+1)>actions.nbTasks()?"non":"oiu");
-            if ((i+1)>actions.nbTasks()) {
-                values.put("action"+(i+1), "NULL");
-                Log.e("Bluetooth", values.toString());
-            }
-            else {
-                values.put("action"+(i+1), actions.getTask(i).toString());
-                Log.e("Bluetooth", values.toString());
-            }
-        }
-        Log.e("Bluetooth", values.toString());
-/*        values.put(ACTION1_COL, actions.getTask(0).getTaskType().toString());
-        values.put(ACTION2_COL, actions.getTask(1).getTaskType().toString());
-        values.put(ACTION3_COL, actions.getTask(2).getTaskType().toString());
-        values.put(ACTION4_COL, actions.getTask(3).getTaskType().toString());
-        values.put(ACTION5_COL, actions.getTask(4).getTaskType().toString());*/
-        // after adding all values we are passing
-        // content values to our table.
-        db.insert(TABLE_NAME, null, values);
+        // Table Gamme_Action (clé primaire composite : (id_gamme, id_action, ordre_execution))
+        // On peut la gérer de cette façon (3 colonnes PK)
+        String createGammeActionTable = "CREATE TABLE IF NOT EXISTS " + TABLE_GAMME_ACTION + " ("
+                + COL_GA_GAMME_ID + " INTEGER NOT NULL, "
+                + COL_GA_ACTION_ID + " INTEGER NOT NULL, "
+                + COL_GA_ORDRE + " INTEGER NOT NULL, "
+                + COL_GA_PARAM + " REAL, "
+                + "PRIMARY KEY (" + COL_GA_GAMME_ID + ", " + COL_GA_ACTION_ID + ", " + COL_GA_ORDRE + "), "
+                + "FOREIGN KEY (" + COL_GA_GAMME_ID + ") REFERENCES " + TABLE_GAMME + "(" + COL_GAMME_ID + "), "
+                + "FOREIGN KEY (" + COL_GA_ACTION_ID + ") REFERENCES " + TABLE_ACTION + "(" + COL_ACTION_ID + ")"
+                + ");";
 
-        // at last we are closing our
-        // database after adding database.
-        db.close();
+        // Table Scenario_Gamme (clé primaire composite : (id_scenario, id_gamme, ordre_scenario))
+        String createScenarioGammeTable = "CREATE TABLE IF NOT EXISTS " + TABLE_SCENARIO_GAMME + " ("
+                + COL_SG_SCENARIO_ID + " INTEGER NOT NULL, "
+                + COL_SG_GAMME_ID + " INTEGER NOT NULL, "
+                + COL_SG_ORDRE + " INTEGER NOT NULL, "
+                + "PRIMARY KEY (" + COL_SG_SCENARIO_ID + ", " + COL_SG_GAMME_ID + ", " + COL_SG_ORDRE + "), "
+                + "FOREIGN KEY (" + COL_SG_SCENARIO_ID + ") REFERENCES " + TABLE_SCENARIO + "(" + COL_SCENARIO_ID + "), "
+                + "FOREIGN KEY (" + COL_SG_GAMME_ID + ") REFERENCES " + TABLE_GAMME + "(" + COL_GAMME_ID + ")"
+                + ");";
+
+        // -----------------------------------------------------------------
+        // Création de la table utilisateurs
+        // -----------------------------------------------------------------
+
+        String createUsersTableQuery = "CREATE TABLE " + TABLE_USERS + " ("
+                + USER_ID_COL + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+                + USERNAME_COL + " TEXT UNIQUE, "
+                + PASSWORD_COL + " TEXT)";
+
+
+        // Exécution des requêtes de création
+        db.execSQL(createActionTable);
+        db.execSQL(createGammeTable);
+        db.execSQL(createScenarioTable);
+        db.execSQL(createGammeActionTable);
+        db.execSQL(createScenarioGammeTable);
+        db.execSQL(createUsersTableQuery);
+
+        // données par défaut
+        insertDefaultActions(db);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        // this method is called to check if the table exists already.
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
+        // On supprime puis on recrée les tables si on change de version
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_GAMME_ACTION);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_SCENARIO_GAMME);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_ACTION);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_GAMME);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_SCENARIO);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_USERS);
+
         onCreate(db);
     }
 
-    public HashMap<String, ArrayList<String>> getData() {
+    // -------------------------------------------------------------
+    //    ACTION METHODS
+    // -------------------------------------------------------------
+    /**
+     * Insert some default rows into the Action table.
+     * Called from onCreate() and/or onUpgrade().
+     */
+    private void insertDefaultActions(SQLiteDatabase db) {
+        // Example default actions
+        insertAction(db, "NIVEAU");
+        insertAction(db, "ROULER_HORAIRE");
+        insertAction(db, "ROULER_ANTIHORAIRE");
+        insertAction(db, "ATTENTE");
+    }
+
+    /**
+     * Helper method to insert one action row.
+     * We pass the SQLiteDatabase to keep everything within onCreate/onUpgrade flow.
+     */
+    private void insertAction(SQLiteDatabase db, String actionName) {
+        ContentValues values = new ContentValues();
+        values.put(COL_ACTION_NAME, actionName);
+        db.insert(TABLE_ACTION, null, values);
+    }
+
+    /**
+     * Get all actions from the 'Action' table.
+     * @return A list of Action objects.
+     */
+    public List<Action> getAllActions() {
+        List<Action> actions = new ArrayList<>();
         SQLiteDatabase db = this.getReadableDatabase();
-        HashMap<String, ArrayList<String>> result = new HashMap<String, ArrayList<String>>();
 
-        // Query to fetch all rows from the table
-        Cursor res = db.rawQuery("SELECT * FROM " + TABLE_NAME, null);
-        res.moveToFirst();
+        // Raw query to select all rows
+        Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_ACTION, null);
 
-        while (!res.isAfterLast()) {
-            ArrayList<String> scenario = new ArrayList<String>();
+        // If there is at least one result, moveToFirst() will be true
+        if (cursor.moveToFirst()) {
+            int idIndex = cursor.getColumnIndex(COL_ACTION_ID);
+            int nameIndex = cursor.getColumnIndex(COL_ACTION_NAME);
 
-            // Get column indices and check if valid
-            int idIndex = res.getColumnIndex(ID_COL);
-            int col1Index = res.getColumnIndex(ACTION1_COL);
-            int col2Index = res.getColumnIndex(ACTION2_COL);
-            int col3Index = res.getColumnIndex(ACTION3_COL);
-            int col4Index = res.getColumnIndex(ACTION4_COL);
-            int col5Index = res.getColumnIndex(ACTION5_COL);
+            // Iterate through all the rows
+            do {
+                int idAction = cursor.getInt(idIndex);
+                String actionName = cursor.getString(nameIndex);
 
-            if (idIndex != -1) {
-                String id = res.getString(idIndex);
-                scenario.add(id);
-            } else {
-                Log.e("DBHandler", "Column " + ID_COL + " not found!");
-            }
+                // Create an Action object
+                Action action =
+                        new Action(idAction, actionName);
 
-            if (col1Index != -1) {
-                String col1 = res.getString(col1Index);
-                scenario.add(col1);
-            } else {
-                Log.e("DBHandler", "Column " + ACTION1_COL + " not found!");
-            }
+                // Add to the list
+                actions.add(action);
 
-            if (col2Index != -1) {
-                String col2 = res.getString(col2Index);
-                scenario.add(col2);
-            } else {
-                Log.e("DBHandler", "Column " + ACTION2_COL + " not found!");
-            }
-
-            if (col3Index != -1) {
-                String col3 = res.getString(col3Index);
-                scenario.add(col3);
-            } else {
-                Log.e("DBHandler", "Column " + ACTION3_COL + " not found!");
-            }
-
-            if (col4Index != -1) {
-                String col4 = res.getString(col4Index);
-                scenario.add(col4);
-            } else {
-                Log.e("DBHandler", "Column " + ACTION4_COL + " not found!");
-            }
-
-            if (col5Index != -1) {
-                String col5 = res.getString(col5Index);
-                scenario.add(col5);
-            } else {
-                Log.e("DBHandler", "Column " + ACTION5_COL + " not found!");
-            }
-
-            // Add to result map with ID as the key
-            result.put(res.getString(idIndex), scenario);
-
-            res.moveToNext();
+            } while (cursor.moveToNext());
         }
 
-        res.close();
+        cursor.close();
+        db.close();
+
+        return actions;
+    }
+
+    /**
+     * Retrieve a single Action by its ID.
+     * @param actionId The ID of the Action to find.
+     * @return The Action object if found, or null otherwise.
+     */
+    public Action getActionById(int actionId) {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        // Query (SELECT) for the row matching actionId
+        Cursor cursor = db.query(
+                TABLE_ACTION,
+                new String[]{COL_ACTION_ID, COL_ACTION_NAME},           // columns to return
+                COL_ACTION_ID + "=?",                                  // selection (WHERE)
+                new String[]{String.valueOf(actionId)},                // selection args
+                null,                                                  // groupBy
+                null,                                                  // having
+                null                                                   // orderBy
+        );
+
+        Action foundAction = null;
+
+        // If cursor is not null and we can move to the first row
+        if (cursor != null && cursor.moveToFirst()) {
+            int idIndex = cursor.getColumnIndex(COL_ACTION_ID);
+            int nameIndex = cursor.getColumnIndex(COL_ACTION_NAME);
+
+            int id = cursor.getInt(idIndex);
+            String name = cursor.getString(nameIndex);
+
+            foundAction = new Action(id, name);
+
+            cursor.close();
+        }
+
+        db.close();
+        return foundAction;
+    }
+
+    public Action getActionByName(String actionName) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.query(
+                TABLE_ACTION,
+                new String[]{COL_ACTION_ID, COL_ACTION_NAME},
+                COL_ACTION_NAME + "=?",
+                new String[]{actionName},
+                null, null, null
+        );
+        Action result = null;
+        if (cursor != null && cursor.moveToFirst()) {
+            int idIndex = cursor.getColumnIndex(COL_ACTION_ID);
+            int nameIndex = cursor.getColumnIndex(COL_ACTION_NAME);
+            int id = cursor.getInt(idIndex);
+            String name = cursor.getString(nameIndex);
+            result = new Action(id, name);
+        }
+        if (cursor != null) cursor.close();
+        db.close();
         return result;
+    }
+
+    // -------------------------------------------------------------
+    //    GAMME METHODS
+    // -------------------------------------------------------------
+
+    /**
+     * Insert a new Gamme into the database.
+     * @param name The name/label of the new Gamme.
+     * @return The row ID of the newly inserted Gamme, or -1 if an error occurred.
+     */
+    public long insertGamme(String name, ArrayList<SelectedAction> selectedActions) {
+        SQLiteDatabase db = getWritableDatabase();
+        db.beginTransaction();
+        long gammeId = -1;
+
+        try {
+            // Insert the Gamme itself (name only)
+            ContentValues gammeValues = new ContentValues();
+            gammeValues.put("name", name);
+            gammeId = db.insertOrThrow("Gamme", null, gammeValues);
+
+            // Insert each SelectedAction into Gamme_Action with its user-given parameter
+            int ordreExecution = 1;
+            for (SelectedAction selectedAction : selectedActions) {
+                ContentValues liaisonValues = new ContentValues();
+                liaisonValues.put("id_gamme", gammeId);
+                liaisonValues.put("id_action", selectedAction.getAction().getId_action());
+                liaisonValues.put("parametre", selectedAction.getParametre());  // Correctly using user input
+                liaisonValues.put("ordre_execution", ordreExecution++);
+                db.insertOrThrow("Gamme_Action", null, liaisonValues);
+            }
+
+            db.setTransactionSuccessful();
+        } catch (Exception e) {
+            Log.e("DBHandler", "Erreur lors de l'insertion de la gamme", e);
+            gammeId = -1;
+        } finally {
+            db.endTransaction();
+        }
+
+        return gammeId;
+    }
+
+
+    /**
+     * Retrieve all Gammes from the database.
+     * @return A list of Gamme objects.
+     */
+    public List<Gamme> getAllGammes() {
+        List<Gamme> gammeList = new ArrayList<>();
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_GAMME, null);
+
+        if (cursor.moveToFirst()) {
+            int idIndex = cursor.getColumnIndex(COL_GAMME_ID);
+            int nameIndex = cursor.getColumnIndex(COL_GAMME_NAME);
+
+            do {
+                int idGamme = cursor.getInt(idIndex);
+                String name = cursor.getString(nameIndex);
+
+                Gamme gamme = new Gamme(idGamme, name);
+                gammeList.add(gamme);
+
+            } while (cursor.moveToNext());
+        }
+
+        cursor.close();
+        db.close();
+        return gammeList;
+    }
+
+    /**
+     * Retrieve a single Gamme by its ID.
+     * @param gammeId The ID of the Gamme to find.
+     * @return The Gamme object if found, or null otherwise.
+     */
+    public Gamme getGammeById(int gammeId) {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        // Query (SELECT) for the row matching gammeId
+        Cursor cursor = db.query(
+                TABLE_GAMME,
+                new String[]{COL_GAMME_ID, COL_GAMME_NAME},
+                COL_GAMME_ID + "=?",
+                new String[]{String.valueOf(gammeId)},
+                null, null, null);
+
+        Gamme foundGamme = null;
+
+        if (cursor != null && cursor.moveToFirst()) {
+            int idIndex = cursor.getColumnIndex(COL_GAMME_ID);
+            int nameIndex = cursor.getColumnIndex(COL_GAMME_NAME);
+
+            int id = cursor.getInt(idIndex);
+            String name = cursor.getString(nameIndex);
+
+            foundGamme = new Gamme(id, name);
+        }
+
+        if (cursor != null) cursor.close();
+        db.close();
+        return foundGamme;
+    }
+
+    /**
+     * Update the name of a Gamme by its ID.
+     * @param gammeId ID of the Gamme to update.
+     * @param name The new name for the Gamme.
+     * @return The number of rows affected (should be 1 if success, 0 if not found).
+     */
+    public boolean updateGamme(int gammeId, String name, ArrayList<SelectedAction> selectedActions) {
+        SQLiteDatabase db = getWritableDatabase();
+        db.beginTransaction();
+
+        try {
+            // Update gamme name
+            ContentValues values = new ContentValues();
+            values.put("name", name);
+            db.update("Gamme", values, "id_gamme=?", new String[]{String.valueOf(gammeId)});
+
+            // Delete previous actions
+            db.delete("Gamme_Action", "id_gamme=?", new String[]{String.valueOf(gammeId)});
+
+            // Re-insert actions
+            int order = 1;
+            for (SelectedAction action : selectedActions) {
+                ContentValues liaison = new ContentValues();
+                liaison.put("id_gamme", gammeId);
+                liaison.put("id_action", action.getAction().getId_action());
+                liaison.put("parametre", action.getParametre());
+                liaison.put("ordre_execution", order++);
+                db.insert("Gamme_Action", null, liaison);
+            }
+
+            db.setTransactionSuccessful();
+            return true;
+        } catch (Exception e) {
+            Log.e("DBHandler", "Update Gamme Error", e);
+            return false;
+        } finally {
+            db.endTransaction();
+        }
+    }
+
+    /**
+     * Delete a Gamme by its ID.
+     * @param gammeId The ID of the Gamme to delete.
+     * @return The number of rows affected (should be 1 if success).
+     */
+    public int deleteGamme(int gammeId) {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        int rowsDeleted = db.delete(
+                TABLE_GAMME,
+                COL_GAMME_ID + "=?",
+                new String[]{String.valueOf(gammeId)}
+        );
+
+        db.close();
+        return rowsDeleted;
+    }
+
+    public long addGammeAction(int gammeId, int actionId, int ordreExecution, float paramValue) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(COL_GA_GAMME_ID, gammeId);
+        values.put(COL_GA_ACTION_ID, actionId);
+        values.put(COL_GA_ORDRE, ordreExecution);
+        values.put(COL_GA_PARAM, paramValue);
+        // Primary key is composite, so if (gammeId, actionId, ordreExecution) is a duplicate, insert fails
+        long rowId = db.insert(TABLE_GAMME_ACTION, null, values);
+        db.close();
+        return rowId;
+    }
+
+    // Get gamme name by ID
+    public String getGammeNameById(int id) {
+        SQLiteDatabase db = getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT name FROM Gamme WHERE id_gamme=?", new String[]{String.valueOf(id)});
+        String name = "";
+        if (cursor.moveToFirst()) {
+            name = cursor.getString(0);
+        }
+        cursor.close();
+        return name;
+    }
+
+    // Get selected actions of a gamme by ID
+    public ArrayList<SelectedAction> getSelectedActionsByGammeId(int gammeId) {
+        ArrayList<SelectedAction> list = new ArrayList<>();
+        SQLiteDatabase db = getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT GA.id_action, A.name, GA.parametre FROM Gamme_Action GA JOIN ActionTable A ON GA.id_action = A.id_action WHERE GA.id_gamme=? ORDER BY GA.ordre_execution", new String[]{String.valueOf(gammeId)});
+
+        if (cursor.moveToFirst()) {
+            do {
+                int actionId = cursor.getInt(0);
+                String actionName = cursor.getString(1);
+                int parametre = cursor.getInt(2);
+                list.add(new SelectedAction(new Action(actionId, actionName), parametre));
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
+        return list;
+    }
+
+    public ArrayList<Gamme> getGammesByScenarioId(int scenarioId) {
+        ArrayList<Gamme> gammes = new ArrayList<>();
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        String query = "SELECT G.id_gamme, G.name " +
+                "FROM Scenario_Gamme SG " +
+                "JOIN Gamme G ON SG.id_gamme = G.id_gamme " +
+                "WHERE SG.id_scenario = ? " +
+                "ORDER BY SG.ordre_scenario ASC";
+
+        Cursor cursor = db.rawQuery(query, new String[]{String.valueOf(scenarioId)});
+
+        if (cursor.moveToFirst()) {
+            do {
+                int id = cursor.getInt(cursor.getColumnIndexOrThrow("id_gamme"));
+                String name = cursor.getString(cursor.getColumnIndexOrThrow("name"));
+                gammes.add(new Gamme(id, name));
+            } while (cursor.moveToNext());
+        }
+
+        cursor.close();
+        db.close();
+
+        return gammes;
+    }
+
+    // -------------------------------------------------------------
+    //    SCENARIO METHODS
+    // -------------------------------------------------------------
+    /**
+     * Insert a new Scenario into the database.
+     * @param name        The scenario's name
+     * @param description Optional text describing the scenario
+     * @return The row ID of the newly inserted scenario, or -1 if an error occurred.
+     */
+    public long addScenario(String name, String description) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+
+        values.put(COL_SCENARIO_NAME, name);
+        values.put(COL_SCENARIO_DESC, description);
+
+        long newRowId = db.insert(TABLE_SCENARIO, null, values);
+        db.close();
+        return newRowId;
+    }
+
+    /**
+     * Retrieve all Scenarios from the database.
+     * @return A list of Scenario objects.
+     */
+    public List<Scenario> getAllScenarios() {
+        List<Scenario> scenarioList = new ArrayList<>();
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_SCENARIO, null);
+
+        if (cursor.moveToFirst()) {
+            int idIndex = cursor.getColumnIndex(COL_SCENARIO_ID);
+            int nameIndex = cursor.getColumnIndex(COL_SCENARIO_NAME);
+            int descIndex = cursor.getColumnIndex(COL_SCENARIO_DESC);
+
+            do {
+                int idScenario = cursor.getInt(idIndex);
+                String scenarioName = cursor.getString(nameIndex);
+                String scenarioDesc = cursor.getString(descIndex);
+
+                Scenario scenario = new Scenario(idScenario, scenarioName, scenarioDesc);
+                scenarioList.add(scenario);
+
+            } while (cursor.moveToNext());
+        }
+
+        cursor.close();
+        db.close();
+        return scenarioList;
+    }
+
+    /**
+     * Retrieve a single Scenario by its ID.
+     * @param scenarioId The ID of the Scenario to find.
+     * @return The Scenario object if found, or null otherwise.
+     */
+    public Scenario getScenarioById(int scenarioId) {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor cursor = db.query(
+                TABLE_SCENARIO,
+                new String[]{COL_SCENARIO_ID, COL_SCENARIO_NAME, COL_SCENARIO_DESC},
+                COL_SCENARIO_ID + "=?",
+                new String[]{String.valueOf(scenarioId)},
+                null,
+                null,
+                null
+        );
+
+        Scenario foundScenario = null;
+
+        if (cursor != null && cursor.moveToFirst()) {
+            int idIndex = cursor.getColumnIndex(COL_SCENARIO_ID);
+            int nameIndex = cursor.getColumnIndex(COL_SCENARIO_NAME);
+            int descIndex = cursor.getColumnIndex(COL_SCENARIO_DESC);
+
+            int id = cursor.getInt(idIndex);
+            String name = cursor.getString(nameIndex);
+            String desc = cursor.getString(descIndex);
+
+            foundScenario = new Scenario(id, name, desc);
+        }
+
+        if (cursor != null) cursor.close();
+        db.close();
+        return foundScenario;
+    }
+
+    /**
+     * Update the name and description of a Scenario by its ID.
+     * @param scenarioId   The ID of the Scenario to update.
+     * @param newName      New name
+     * @param newDesc      New description (or null if none)
+     * @return The number of rows affected (1 if success, 0 if not found, or >1 if multiple).
+     */
+    public int updateScenario(int scenarioId, String newName, String newDesc) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(COL_SCENARIO_NAME, newName);
+        values.put(COL_SCENARIO_DESC, newDesc);
+
+        int rowsAffected = db.update(
+                TABLE_SCENARIO,
+                values,
+                COL_SCENARIO_ID + "=?",
+                new String[]{String.valueOf(scenarioId)}
+        );
+
+        db.close();
+        return rowsAffected;
+    }
+
+    /**
+     * Delete a Scenario by its ID.
+     * @param scenarioId The ID of the Scenario to delete.
+     * @return The number of rows deleted (1 if success, 0 if not found).
+     */
+    public int deleteScenario(int scenarioId) {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        int rowsDeleted = db.delete(
+                TABLE_SCENARIO,
+                COL_SCENARIO_ID + "=?",
+                new String[]{String.valueOf(scenarioId)}
+        );
+
+        db.close();
+        return rowsDeleted;
+    }
+
+    public boolean updateScenarioWithGammes(int scenarioId, String name, String desc, List<Gamme> orderedGammes) {
+        SQLiteDatabase db = getWritableDatabase();
+        db.beginTransaction();
+
+        try {
+            // 1. Update Scenario info
+            ContentValues values = new ContentValues();
+            values.put(COL_SCENARIO_NAME, name);
+            values.put(COL_SCENARIO_DESC, desc);
+            db.update(TABLE_SCENARIO, values, COL_SCENARIO_ID + "=?", new String[]{String.valueOf(scenarioId)});
+
+            // 2. Delete all existing gammes from the scenario
+            db.delete(TABLE_SCENARIO_GAMME, COL_SG_SCENARIO_ID + "=?", new String[]{String.valueOf(scenarioId)});
+
+            // 3. Re-insert with new order
+            int order = 1;
+            for (Gamme gamme : orderedGammes) {
+                ContentValues link = new ContentValues();
+                link.put(COL_SG_SCENARIO_ID, scenarioId);
+                link.put(COL_SG_GAMME_ID, gamme.getId_gamme());
+                link.put(COL_SG_ORDRE, order++);
+                db.insert(TABLE_SCENARIO_GAMME, null, link);
+            }
+
+            db.setTransactionSuccessful();
+            return true;
+
+        } catch (Exception e) {
+            Log.e("DBHandler", "Erreur updateScenarioWithGammes", e);
+            return false;
+        } finally {
+            db.endTransaction();
+        }
+    }
+
+    public ArrayList<Gamme> getGammesForScenario(int scenarioId) {
+        ArrayList<Gamme> gammes = new ArrayList<>();
+        SQLiteDatabase db = getReadableDatabase();
+
+        Cursor cursor = db.rawQuery(
+                "SELECT G." + COL_GAMME_ID + ", G." + COL_GAMME_NAME +
+                        " FROM " + TABLE_SCENARIO_GAMME + " SG " +
+                        " JOIN " + TABLE_GAMME + " G ON SG." + COL_SG_GAMME_ID + " = G." + COL_GAMME_ID +
+                        " WHERE SG." + COL_SG_SCENARIO_ID + " = ? " +
+                        " ORDER BY SG." + COL_SG_ORDRE,
+                new String[]{String.valueOf(scenarioId)}
+        );
+
+        if (cursor.moveToFirst()) {
+            int idIndex = cursor.getColumnIndex(COL_GAMME_ID);
+            int nameIndex = cursor.getColumnIndex(COL_GAMME_NAME);
+
+            do {
+                int id = cursor.getInt(idIndex);
+                String name = cursor.getString(nameIndex);
+                gammes.add(new Gamme(id, name));
+            } while (cursor.moveToNext());
+        }
+
+        cursor.close();
+        return gammes;
+    }
+
+    public boolean deleteScenarioCascade(int scenarioId) {
+        SQLiteDatabase db = getWritableDatabase();
+        db.beginTransaction();
+
+        try {
+            // Delete associated rows from Scenario_Gamme (liaison table)
+            db.delete(TABLE_SCENARIO_GAMME, COL_SG_SCENARIO_ID + "=?", new String[]{String.valueOf(scenarioId)});
+
+            // Delete the scenario itself
+            db.delete(TABLE_SCENARIO, COL_SCENARIO_ID + "=?", new String[]{String.valueOf(scenarioId)});
+
+            db.setTransactionSuccessful();
+            return true;
+        } catch (Exception e) {
+            Log.e("DBHandler", "Erreur suppression scénario (cascade)", e);
+            return false;
+        } finally {
+            db.endTransaction();
+        }
+    }
+
+    /**
+     * Ajoute une entrée dans la table de liaison Scenario_Gamme.
+     * @param scenarioId ID du scénario
+     * @param gammeId ID de la gamme
+     * @param ordre Ordre d'exécution dans le scénario
+     * @return ID de la ligne insérée, ou -1 en cas d'erreur
+     */
+    public long addScenarioGamme(int scenarioId, int gammeId, int ordre) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(COL_SG_SCENARIO_ID, scenarioId);
+        values.put(COL_SG_GAMME_ID, gammeId);
+        values.put(COL_SG_ORDRE, ordre);
+
+        long result = db.insert(TABLE_SCENARIO_GAMME, null, values);
+        db.close();
+        return result;
+    }
+
+    public void clearScenarioGammes(int scenarioId) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete(TABLE_SCENARIO_GAMME, COL_SG_SCENARIO_ID + "=?", new String[]{String.valueOf(scenarioId)});
+        db.close();
+    }
+
+    // -------------------------------------------------------------
+    //    USER METHODS
+    // -------------------------------------------------------------
+    /**
+     * Add a user to the Users table.
+     * @param username The user's chosen username.
+     * @param password The user's chosen password (plain text or hashed).
+     * @return true if successfully inserted, false otherwise.
+     */
+    public boolean addUser(String username, String password) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(USERNAME_COL, username);
+        values.put(PASSWORD_COL, password);
+
+        long result = db.insert(TABLE_USERS, null, values);
+        db.close();
+        // if result == -1 => error
+        return (result != -1);
+    }
+
+    /**
+     * Check if a user exists in the DB with the given username + password.
+     * @return true if match is found, false otherwise.
+     */
+    public boolean checkUser(String username, String password) {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        // Query all matching rows
+        Cursor cursor = db.query(
+                TABLE_USERS,
+                new String[]{USER_ID_COL}, // we just need the ID
+                USERNAME_COL + "=? AND " + PASSWORD_COL + "=?",
+                new String[]{username, password},
+                null, null, null);
+
+        boolean userExists = (cursor.getCount() > 0);
+        cursor.close();
+        db.close();
+        return userExists;
     }
 }

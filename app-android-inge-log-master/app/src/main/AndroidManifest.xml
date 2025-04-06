@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.BLUETOOTH" />
     <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
@@ -7,6 +8,7 @@
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -14,17 +16,29 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.RobotArmH25Remote">
-        <activity
-            android:name=".MainActivity"
-            android:label="@string/app_name"
-            android:theme="@style/Theme.RobotArmH25Remote.NoActionBar"
+
+        <activity android:name=".LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!-- The next screen, e.g., MainMenuActivity -->
+        <activity android:name=".MainMenuActivity" />
+
+        <activity
+            android:name=".ConnectActivity"
+            android:exported="true" />
+
+        <activity android:name=".GammeListActivity" />
+        <activity android:name=".EditGammeActivity" />
+        <activity android:name=".CreateGammeActivity" />
+
+        <activity android:name=".ScenarioListActivity" />
+        <activity android:name=".CreateScenarioActivity" />
+        <activity android:name=".EditScenarioActivity" />
     </application>
 
 </manifest>
