@@ -1,5 +1,6 @@
 package com.example.robotarmh25_remote;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
@@ -19,12 +20,14 @@ import androidx.annotation.NonNull;
 
 import com.example.robotarmh25_remote.ui.connect.ConnectFragment;
 import com.example.robotarmh25_remote.ui.connect.ConnectViewModel;
+import com.example.robotarmh25_remote.models.Scenario;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.DataOutputStream;
 import java.io.IOException;
+import java.util.List;
 
 public class MainMenuActivity extends AppCompatActivity {
 
@@ -43,7 +46,7 @@ public class MainMenuActivity extends AppCompatActivity {
         buttonGamme = findViewById(R.id.buttonGamme);
         buttonScenario = findViewById(R.id.buttonScenario);
         Button buttonSendOrder = findViewById(R.id.buttonSendOrder);
-        buttonSendOrder.setOnClickListener(v -> sendScenarioOrder(1));
+        buttonSendOrder.setOnClickListener(v -> showScenarioPickerDialog());
 
         // Ensure btCon is initialized
         if (ConnectFragment.btCon == null) {
@@ -125,6 +128,25 @@ public class MainMenuActivity extends AppCompatActivity {
             e.printStackTrace();
         }
     }*/
+    private void showScenarioPickerDialog() {
+        DBHandler dbHandler = new DBHandler(this);
+        List<Scenario> scenarioList = dbHandler.getAllScenarios();
+
+        // Extract scenario names for display
+        String[] scenarioNames = new String[scenarioList.size()];
+        for (int i = 0; i < scenarioList.size(); i++) {
+            scenarioNames[i] = scenarioList.get(i).getName(); // or .getName() if that's the method
+        }
+
+        new AlertDialog.Builder(this)
+                .setTitle("Choisir un scénario")
+                .setItems(scenarioNames, (dialog, which) -> {
+                    int selectedScenarioId = scenarioList.get(which).getId_scenario(); // or getScenarioId()
+                    sendScenarioOrder(selectedScenarioId);
+                })
+                .setNegativeButton("Annuler", null)
+                .show();
+    }
 
     private void sendScenarioOrder(int scenarioId) {
         try {
