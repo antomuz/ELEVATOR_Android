@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.BLUETOOTH"             android:required="false" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"       android:required="false" />
+
+    <!-- Nouvelles permissions (API 31 +) : ajoute required=\"false\" pour que l’APK reste installable
+         sur les vieilles versions, et l’attribut usesPermissionFlags pour éviter l’erreur
+         « Bluetooth scan used for location » sur Android 13 . -->
+    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT"
+                     android:required="false"/>
+
+    <uses-permission android:name="android.permission.BLUETOOTH_SCAN"
+                     android:required="false"
+                     android:usesPermissionFlags="neverForLocation"/>
+
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.RobotArmH25Remote">
+
+        <activity android:name=".LoginActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- The next screen, e.g., MainMenuActivity -->
+        <activity android:name=".MainMenuActivity" />
+
+        <activity
+            android:name=".ConnectActivity"
+            android:exported="true" />
+
+        <activity android:name=".GammeListActivity" />
+        <activity android:name=".EditGammeActivity" />
+        <activity android:name=".CreateGammeActivity" />
+
+        <activity android:name=".ScenarioListActivity" />
+        <activity android:name=".CreateScenarioActivity" />
+        <activity android:name=".EditScenarioActivity" />
+    </application>
+
+</manifest>

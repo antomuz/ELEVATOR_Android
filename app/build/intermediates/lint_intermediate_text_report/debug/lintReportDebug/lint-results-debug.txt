@@ -1,0 +1,775 @@
+C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\AndroidManifest.xml:4: Warning: READ_EXTERNAL_STORAGE is deprecated (and is not granted) when targeting Android 13+. If you need to query or interact with MediaStore or media files on the shared storage, you should instead use one or more new storage permissions: READ_MEDIA_IMAGES, READ_MEDIA_VIDEO or READ_MEDIA_AUDIO. [ScopedStorage]
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+                                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "ScopedStorage":
+   Scoped storage is enforced on Android 10+ (or Android 11+ if using
+   requestLegacyExternalStorage). In particular, WRITE_EXTERNAL_STORAGE will
+   no longer provide write access to all files; it will provide the equivalent
+   of READ_EXTERNAL_STORAGE instead.
+
+   As of Android 13, if you need to query or interact with MediaStore or media
+   files on the shared storage, you should be using instead one or more new
+   storage permissions:
+   * android.permission.READ_MEDIA_IMAGES
+   * android.permission.READ_MEDIA_VIDEO
+   * android.permission.READ_MEDIA_AUDIO
+
+   and then add maxSdkVersion="33" to the older permission. See the developer
+   guide for how to do this:
+   https://developer.android.com/about/versions/13/behavior-changes-13#granula
+   r-media-permissions
+
+   The MANAGE_EXTERNAL_STORAGE permission can be used to manage all files, but
+   it is rarely necessary and most apps on Google Play are not allowed to use
+   it. Most apps should instead migrate to use scoped storage. To modify or
+   delete files, apps should request write access from the user as described
+   at https://goo.gle/android-mediastore-createwriterequest.
+
+   To learn more, read these resources: Play policy:
+   https://goo.gle/policy-storage-help Allowable use cases:
+   https://goo.gle/policy-storage-usecases
+
+   https://goo.gle/android-storage-usecases
+
+C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\build.gradle:13: Warning: Not targeting the latest versions of Android; compatibility modes apply. Consider testing and updating this version. Consult the android.os.Build.VERSION_CODES javadoc for details. [OldTargetApi]
+        targetSdk 34
+        ~~~~~~~~~~~~
+
+   Explanation for issues of type "OldTargetApi":
+   When your application runs on a version of Android that is more recent than
+   your targetSdkVersion specifies that it has been tested with, various
+   compatibility modes kick in. This ensures that your application continues
+   to work, but it may look out of place. For example, if the targetSdkVersion
+   is less than 14, your app may get an option button in the UI.
+
+   To fix this issue, set the targetSdkVersion to the highest available value.
+   Then test your app to make sure everything works correctly. You may want to
+   consult the compatibility notes to see what changes apply to each version
+   you are adding support for:
+   https://developer.android.com/reference/android/os/Build.VERSION_CODES.html
+   as well as follow this guide:
+   https://developer.android.com/distribute/best-practices/develop/target-sdk.
+   html
+
+   https://developer.android.com/distribute/best-practices/develop/target-sdk.html
+
+C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\AndroidManifest.xml:16: Warning: Attribute usesPermissionFlags is only used in API level 31 and higher (current min is 21) [UnusedAttribute]
+                     android:usesPermissionFlags="neverForLocation"/>
+                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "UnusedAttribute":
+   This check finds attributes set in XML files that were introduced in a
+   version newer than the oldest version targeted by your application (with
+   the minSdkVersion attribute).
+
+   This is not an error; the application will simply ignore the attribute.
+   However, if the attribute is important to the appearance or functionality
+   of your application, you should consider finding an alternative way to
+   achieve the same result with only available attributes, and then you can
+   optionally create a copy of the layout in a layout-vNN folder which will be
+   used on API NN or higher where you can take advantage of the newer
+   attribute.
+
+   Note: This check does not only apply to attributes. For example, some tags
+   can be unused too, such as the new <tag> element in layouts introduced in
+   API 21.
+
+C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\res\layout\content_main.xml:10: Warning: Replace the <fragment> tag with FragmentContainerView. [FragmentTagUsage from androidx.fragment]
+    <fragment
+     ~~~~~~~~
+
+   Explanation for issues of type "FragmentTagUsage":
+   FragmentContainerView replaces the <fragment> tag as the preferred         
+          way of adding fragments via XML. Unlike the <fragment> tag,
+   FragmentContainerView                 uses a normal FragmentTransaction
+   under the hood to add the initial fragment,                 allowing
+   further FragmentTransaction operations on the FragmentContainerView        
+           and providing a consistent timing for lifecycle events.
+
+   https://developer.android.com/reference/androidx/fragment/app/FragmentContainerView.html
+
+   Vendor: Android Open Source Project
+   Identifier: androidx.fragment
+   Feedback: https://issuetracker.google.com/issues/new?component=460964
+
+C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\java\com\example\robotarmh25_remote\ui\remote\RemoteFragment.java:50: Warning: Use SwitchCompat from AppCompat or MaterialSwitch from Material library [UseSwitchCompatOrMaterialCode from androidx.appcompat]
+        final Switch switchRotationAntiHoraire = (Switch) root.findViewById(R.id.switchRotationAntiHoraire);
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\java\com\example\robotarmh25_remote\ui\remote\RemoteFragment.java:51: Warning: Use SwitchCompat from AppCompat or MaterialSwitch from Material library [UseSwitchCompatOrMaterialCode from androidx.appcompat]
+        final Switch switchRotationHoraire = (Switch) root.findViewById(R.id.switchRotationHoraire);
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\java\com\example\robotarmh25_remote\ui\remote\RemoteFragment.java:52: Warning: Use SwitchCompat from AppCompat or MaterialSwitch from Material library [UseSwitchCompatOrMaterialCode from androidx.appcompat]
+        final Switch switchLever = (Switch) root.findViewById(R.id.switchLever);
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\java\com\example\robotarmh25_remote\ui\remote\RemoteFragment.java:53: Warning: Use SwitchCompat from AppCompat or MaterialSwitch from Material library [UseSwitchCompatOrMaterialCode from androidx.appcompat]
+        final Switch switchBaisser = (Switch) root.findViewById(R.id.switchBaisser);
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\java\com\example\robotarmh25_remote\ui\remote\RemoteFragment.java:54: Warning: Use SwitchCompat from AppCompat or MaterialSwitch from Material library [UseSwitchCompatOrMaterialCode from androidx.appcompat]
+        final Switch switchOuvrir = (Switch) root.findViewById(R.id.switchOuvrir);
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\java\com\example\robotarmh25_remote\ui\remote\RemoteFragment.java:55: Warning: Use SwitchCompat from AppCompat or MaterialSwitch from Material library [UseSwitchCompatOrMaterialCode from androidx.appcompat]
+        final Switch switchFermer = (Switch) root.findViewById(R.id.switchFermer);
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "UseSwitchCompatOrMaterialCode":
+   Use SwitchCompat from AppCompat or MaterialSwitch from Material library
+
+   Vendor: Android Open Source Project
+   Identifier: androidx.appcompat
+   Feedback: https://issuetracker.google.com/issues/new?component=460343
+
+C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\res\layout\fragment_remote.xml:76: Warning: Use SwitchCompat from AppCompat or MaterialSwitch from Material library [UseSwitchCompatOrMaterialXml from androidx.appcompat]
+    <Switch
+    ^
+C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\res\layout\fragment_remote.xml:89: Warning: Use SwitchCompat from AppCompat or MaterialSwitch from Material library [UseSwitchCompatOrMaterialXml from androidx.appcompat]
+    <Switch
+    ^
+C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\res\layout\fragment_remote.xml:102: Warning: Use SwitchCompat from AppCompat or MaterialSwitch from Material library [UseSwitchCompatOrMaterialXml from androidx.appcompat]
+    <Switch
+    ^
+C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\res\layout\fragment_remote.xml:115: Warning: Use SwitchCompat from AppCompat or MaterialSwitch from Material library [UseSwitchCompatOrMaterialXml from androidx.appcompat]
+    <Switch
+    ^
+C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\res\layout\fragment_remote.xml:128: Warning: Use SwitchCompat from AppCompat or MaterialSwitch from Material library [UseSwitchCompatOrMaterialXml from androidx.appcompat]
+    <Switch
+    ^
+C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\res\layout\fragment_remote.xml:141: Warning: Use SwitchCompat from AppCompat or MaterialSwitch from Material library [UseSwitchCompatOrMaterialXml from androidx.appcompat]
+    <Switch
+    ^
+
+   Explanation for issues of type "UseSwitchCompatOrMaterialXml":
+   Use SwitchCompat from AppCompat or MaterialSwitch from Material library
+
+   Vendor: Android Open Source Project
+   Identifier: androidx.appcompat
+   Feedback: https://issuetracker.google.com/issues/new?component=460343
+
+C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\build.gradle:36: Warning: A newer version of androidx.constraintlayout:constraintlayout than 2.2.0 is available: 2.2.1 [GradleDependency]
+    implementation 'androidx.constraintlayout:constraintlayout:2.2.0'
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\build.gradle:37: Warning: A newer version of androidx.navigation:navigation-fragment than 2.8.5 is available: 2.9.0 [GradleDependency]
+    implementation 'androidx.navigation:navigation-fragment:2.8.5'
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\build.gradle:38: Warning: A newer version of androidx.navigation:navigation-ui than 2.8.5 is available: 2.9.0 [GradleDependency]
+    implementation 'androidx.navigation:navigation-ui:2.8.5'
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\build.gradle:39: Warning: A newer version of androidx.lifecycle:lifecycle-livedata-ktx than 2.8.7 is available: 2.9.0 [GradleDependency]
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.8.7'
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\build.gradle:40: Warning: A newer version of androidx.lifecycle:lifecycle-viewmodel-ktx than 2.8.7 is available: 2.9.0 [GradleDependency]
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.8.7'
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\build.gradle:41: Warning: A newer version of androidx.activity:activity than 1.8.0 is available: 1.10.1 [GradleDependency]
+    implementation 'androidx.activity:activity:1.8.0'
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "GradleDependency":
+   This detector looks for usages of libraries where the version you are using
+   is not the current stable release. Using older versions is fine, and there
+   are cases where you deliberately want to stick with an older version.
+   However, you may simply not be aware that a more recent version is
+   available, and that is what this lint check helps find.
+
+C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\res\values-night\themes.xml:13: Warning: Unnecessary; SDK_INT is always >= 21 [ObsoleteSdkInt]
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+                                            ~~~~~~~~~~~~~~~~~~~
+C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\res\values\themes.xml:13: Warning: Unnecessary; SDK_INT is always >= 21 [ObsoleteSdkInt]
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+                                            ~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "ObsoleteSdkInt":
+   This check flags version checks that are not necessary, because the
+   minSdkVersion (or surrounding known API level) is already at least as high
+   as the version checked for.
+
+   Similarly, it also looks for resources in -vNN folders, such as values-v14
+   where the version qualifier is less than or equal to the minSdkVersion,
+   where the contents should be merged into the best folder.
+
+C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\res\layout\activity_connect.xml:2: Warning: This <FrameLayout> can be replaced with a <merge> tag [MergeRootFrame]
+<FrameLayout 
+^
+
+   Explanation for issues of type "MergeRootFrame":
+   If a <FrameLayout> is the root of a layout and does not provide background
+   or padding etc, it can often be replaced with a <merge> tag which is
+   slightly more efficient. Note that this depends on context, so make sure
+   you understand how the <merge> tag works before proceeding.
+
+   https://android-developers.googleblog.com/2009/03/android-layout-tricks-3-optimize-by.html
+
+C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\res\layout\activity_create_gamme.xml:21: Warning: Set android:baselineAligned="false" on this element for better performance [DisableBaselineAlignment]
+    <LinearLayout
+     ~~~~~~~~~~~~
+C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\res\layout\activity_create_scenario.xml:23: Warning: Set android:baselineAligned="false" on this element for better performance [DisableBaselineAlignment]
+    <LinearLayout
+     ~~~~~~~~~~~~
+C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\res\layout\activity_edit_gamme.xml:21: Warning: Set android:baselineAligned="false" on this element for better performance [DisableBaselineAlignment]
+    <LinearLayout
+     ~~~~~~~~~~~~
+C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\res\layout\activity_edit_scenario.xml:24: Warning: Set android:baselineAligned="false" on this element for better performance [DisableBaselineAlignment]
+    <LinearLayout
+     ~~~~~~~~~~~~
+
+   Explanation for issues of type "DisableBaselineAlignment":
+   When a LinearLayout is used to distribute the space proportionally between
+   nested layouts, the baseline alignment property should be turned off to
+   make the layout computation faster.
+
+C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\res\layout\activity_create_gamme.xml:31: Warning: Nested weights are bad for performance [NestedWeights]
+            android:layout_weight="1"
+            ~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\res\layout\activity_create_scenario.xml:32: Warning: Nested weights are bad for performance [NestedWeights]
+            android:layout_weight="1"
+            ~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\res\layout\activity_edit_gamme.xml:31: Warning: Nested weights are bad for performance [NestedWeights]
+            android:layout_weight="1"
+            ~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\res\layout\activity_edit_scenario.xml:33: Warning: Nested weights are bad for performance [NestedWeights]
+            android:layout_weight="1"
+            ~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "NestedWeights":
+   Layout weights require a widget to be measured twice. When a LinearLayout
+   with non-zero weights is nested inside another LinearLayout with non-zero
+   weights, then the number of measurements increase exponentially.
+
+C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\res\layout\activity_connexion.xml:8: Warning: Possible overdraw: Root element paints background @android:color/white with a theme that also paints a background (inferred theme is @style/Theme.RobotArmH25Remote) [Overdraw]
+    android:background="@android:color/white"   
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\res\layout\activity_login.xml:9: Warning: Possible overdraw: Root element paints background @android:color/white with a theme that also paints a background (inferred theme is @style/Theme.RobotArmH25Remote) [Overdraw]
+    android:background="@android:color/white">
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\res\layout\activity_main_menu.xml:6: Warning: Possible overdraw: Root element paints background @android:color/white with a theme that also paints a background (inferred theme is @style/Theme.RobotArmH25Remote) [Overdraw]
+    android:background="@android:color/white">
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\res\layout\fragment_connect.xml:7: Warning: Possible overdraw: Root element paints background #292929 with a theme that also paints a background (inferred theme is @style/Theme.RobotArmH25Remote) [Overdraw]
+    android:background="#292929"
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\res\layout\fragment_remote.xml:7: Warning: Possible overdraw: Root element paints background #292929 with a theme that also paints a background (inferred theme is @style/Theme.RobotArmH25Remote) [Overdraw]
+    android:background="#292929"
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\res\layout\nav_header_main.xml:6: Warning: Possible overdraw: Root element paints background #2F2F2F with a theme that also paints a background (inferred theme is @style/Theme.RobotArmH25Remote) [Overdraw]
+    android:background="#2F2F2F"
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "Overdraw":
+   If you set a background drawable on a root view, then you should use a
+   custom theme where the theme background is null. Otherwise, the theme
+   background will be painted first, only to have your custom background
+   completely cover it; this is called "overdraw".
+
+   NOTE: This detector relies on figuring out which layouts are associated
+   with which activities based on scanning the Java code, and it's currently
+   doing that using an inexact pattern matching algorithm. Therefore, it can
+   incorrectly conclude which activity the layout is associated with and then
+   wrongly complain that a background-theme is hidden.
+
+   If you want your custom background on multiple pages, then you should
+   consider making a custom theme with your custom background and just using
+   that theme instead of a root element background.
+
+   Of course it's possible that your custom drawable is translucent and you
+   want it to be mixed with the background. However, you will get better
+   performance if you pre-mix the background with your drawable and use that
+   resulting image or color as a custom theme background instead.
+
+C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\res\layout\activity_connexion.xml:2: Warning: The resource R.layout.activity_connexion appears to be unused [UnusedResources]
+<LinearLayout 
+^
+C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\res\layout\activity_main.xml:2: Warning: The resource R.layout.activity_main appears to be unused [UnusedResources]
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+^
+C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\res\menu\activity_main_drawer.xml:2: Warning: The resource R.menu.activity_main_drawer appears to be unused [UnusedResources]
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+^
+C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\res\layout\app_bar_main.xml:2: Warning: The resource R.layout.app_bar_main appears to be unused [UnusedResources]
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+^
+C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\res\values\colors.xml:10: Warning: The resource R.color.colorWhite appears to be unused [UnusedResources]
+    <color name="colorWhite">#FFFFFF</color>
+           ~~~~~~~~~~~~~~~~~
+C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\res\values\colors.xml:13: Warning: The resource R.color.gray appears to be unused [UnusedResources]
+    <color name="gray">#D9D9D9</color>
+           ~~~~~~~~~~~
+C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\res\layout\content_main.xml:2: Warning: The resource R.layout.content_main appears to be unused [UnusedResources]
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+^
+C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\res\values\dimens.xml:3: Warning: The resource R.dimen.activity_horizontal_margin appears to be unused [UnusedResources]
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\res\values\dimens.xml:4: Warning: The resource R.dimen.activity_vertical_margin appears to be unused [UnusedResources]
+    <dimen name="activity_vertical_margin">16dp</dimen>
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\res\values\dimens.xml:5: Warning: The resource R.dimen.nav_header_vertical_spacing appears to be unused [UnusedResources]
+    <dimen name="nav_header_vertical_spacing">8dp</dimen>
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\res\values\dimens.xml:6: Warning: The resource R.dimen.nav_header_height appears to be unused [UnusedResources]
+    <dimen name="nav_header_height">176dp</dimen>
+           ~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\res\values\dimens.xml:7: Warning: The resource R.dimen.fab_margin appears to be unused [UnusedResources]
+    <dimen name="fab_margin">16dp</dimen>
+           ~~~~~~~~~~~~~~~~~
+C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\res\values\drawables.xml:2: Warning: The resource R.drawable.ic_menu_camera appears to be unused [UnusedResources]
+    <item name="ic_menu_camera" type="drawable">@android:drawable/ic_menu_camera</item>
+          ~~~~~~~~~~~~~~~~~~~~~
+C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\res\values\drawables.xml:3: Warning: The resource R.drawable.ic_menu_gallery appears to be unused [UnusedResources]
+    <item name="ic_menu_gallery" type="drawable">@android:drawable/ic_menu_gallery</item>
+          ~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\res\values\drawables.xml:4: Warning: The resource R.drawable.ic_menu_slideshow appears to be unused [UnusedResources]
+    <item name="ic_menu_slideshow" type="drawable">@android:drawable/ic_menu_slideshow</item>
+          ~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\res\values\drawables.xml:5: Warning: The resource R.drawable.ic_menu_manage appears to be unused [UnusedResources]
+    <item name="ic_menu_manage" type="drawable">@android:drawable/ic_menu_manage</item>
+          ~~~~~~~~~~~~~~~~~~~~~
+C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\res\values\drawables.xml:6: Warning: The resource R.drawable.ic_menu_share appears to be unused [UnusedResources]
+    <item name="ic_menu_share" type="drawable">@android:drawable/ic_menu_share</item>
+          ~~~~~~~~~~~~~~~~~~~~
+C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\res\values\drawables.xml:7: Warning: The resource R.drawable.ic_menu_send appears to be unused [UnusedResources]
+    <item name="ic_menu_send" type="drawable">@android:drawable/ic_menu_send</item>
+          ~~~~~~~~~~~~~~~~~~~
+C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\res\drawable\ic_precision_manufacturing_black_24dp.xml:1: Warning: The resource R.drawable.ic_precision_manufacturing_black_24dp appears to be unused [UnusedResources]
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+^
+C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\res\drawable\ic_settings_remote.xml:1: Warning: The resource R.drawable.ic_settings_remote appears to be unused [UnusedResources]
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+^
+C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\res\layout\item_gamme_to_select.xml:2: Warning: The resource R.layout.item_gamme_to_select appears to be unused [UnusedResources]
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+^
+C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\res\menu\main.xml:2: Warning: The resource R.menu.main appears to be unused [UnusedResources]
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+^
+C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\res\navigation\mobile_navigation.xml:2: Warning: The resource R.navigation.mobile_navigation appears to be unused [UnusedResources]
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+^
+C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\res\layout\nav_header_main.xml:2: Warning: The resource R.layout.nav_header_main appears to be unused [UnusedResources]
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+^
+C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\res\drawable\side_nav_bar.xml:1: Warning: The resource R.drawable.side_nav_bar appears to be unused [UnusedResources]
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+^
+C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\res\values\strings.xml:3: Warning: The resource R.string.navigation_drawer_open appears to be unused [UnusedResources]
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\res\values\strings.xml:4: Warning: The resource R.string.navigation_drawer_close appears to be unused [UnusedResources]
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\res\values\strings.xml:5: Warning: The resource R.string.nav_header_title appears to be unused [UnusedResources]
+    <string name="nav_header_title">Pilotage du Robot ARM H25</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\res\values\strings.xml:6: Warning: The resource R.string.nav_header_subtitle appears to be unused [UnusedResources]
+    <string name="nav_header_subtitle">Menu principal</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\res\values\strings.xml:7: Warning: The resource R.string.nav_header_desc appears to be unused [UnusedResources]
+    <string name="nav_header_desc">Navigation header</string>
+            ~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\res\values\strings.xml:8: Warning: The resource R.string.action_settings appears to be unused [UnusedResources]
+    <string name="action_settings">Settings</string>
+            ~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\res\values\strings.xml:20: Warning: The resource R.string.menu_connect appears to be unused [UnusedResources]
+    <string name="menu_connect">Connexion au robot</string>
+            ~~~~~~~~~~~~~~~~~~~
+C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\res\values\strings.xml:21: Warning: The resource R.string.menu_remote appears to be unused [UnusedResources]
+    <string name="menu_remote">Télécommande</string>
+            ~~~~~~~~~~~~~~~~~~
+C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\res\values\strings.xml:24: Warning: The resource R.string.menu_config appears to be unused [UnusedResources]
+    <string name="menu_config">Configuration</string>
+            ~~~~~~~~~~~~~~~~~~
+C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\res\values\strings.xml:25: Warning: The resource R.string.menu_liste appears to be unused [UnusedResources]
+    <string name="menu_liste">Liste</string>
+            ~~~~~~~~~~~~~~~~~
+C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\res\values\themes.xml:17: Warning: The resource R.style.Theme_RobotArmH25Remote_NoActionBar appears to be unused [UnusedResources]
+    <style name="Theme.RobotArmH25Remote.NoActionBar">
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\res\values\themes.xml:22: Warning: The resource R.style.Theme_RobotArmH25Remote_AppBarOverlay appears to be unused [UnusedResources]
+    <style name="Theme.RobotArmH25Remote.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\res\values\themes.xml:24: Warning: The resource R.style.Theme_RobotArmH25Remote_PopupOverlay appears to be unused [UnusedResources]
+    <style name="Theme.RobotArmH25Remote.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "UnusedResources":
+   Unused resources make applications larger and slow down builds.
+
+
+   The unused resource check can ignore tests. If you want to include
+   resources that are only referenced from tests, consider packaging them in a
+   test source set instead.
+
+   You can include test sources in the unused resource check by setting the
+   system property lint.unused-resources.include-tests =true, and to exclude
+   them (usually for performance reasons), use
+   lint.unused-resources.exclude-tests =true.
+   ,
+
+C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\res\mipmap-anydpi-v26\ic_launcher.xml:2: Warning: The application adaptive icon is missing a monochrome tag [MonochromeLauncherIcon]
+<adaptive-icon xmlns:android="http://schemas.android.com/apk/res/android">
+^
+C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\res\mipmap-anydpi-v26\ic_launcher_round.xml:2: Warning: The application adaptive roundIcon is missing a monochrome tag [MonochromeLauncherIcon]
+<adaptive-icon xmlns:android="http://schemas.android.com/apk/res/android">
+^
+
+   Explanation for issues of type "MonochromeLauncherIcon":
+   If android:roundIcon and android:icon are both in your manifest, you must
+   either remove the reference to android:roundIcon if it is not needed; or,
+   supply the monochrome icon in the drawable defined by the android:roundIcon
+   and android:icon attribute.
+
+   For example, if android:roundIcon and android:icon are both in the
+   manifest, a launcher might choose to use android:roundIcon over
+   android:icon to display the adaptive app icon. Therefore, your themed
+   application iconwill not show if your monochrome attribute is not also
+   specified in android:roundIcon.
+
+C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\res\layout\activity_main_menu.xml:19: Warning: Buttons in button bars should be borderless; use style="?android:attr/buttonBarButtonStyle" (and ?android:attr/buttonBarStyle on the parent) [ButtonStyle]
+        <Button
+         ~~~~~~
+C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\res\layout\activity_main_menu.xml:28: Warning: Buttons in button bars should be borderless; use style="?android:attr/buttonBarButtonStyle" (and ?android:attr/buttonBarStyle on the parent) [ButtonStyle]
+        <Button
+         ~~~~~~
+
+   Explanation for issues of type "ButtonStyle":
+   Button bars typically use a borderless style for the buttons. Set the
+   style="?android:attr/buttonBarButtonStyle" attribute on each of the
+   buttons, and set style="?android:attr/buttonBarStyle" on the parent layout
+
+   https://d.android.com/r/studio-ui/designer/material/dialogs
+
+C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\res\layout\activity_create_gamme.xml:14: Warning: This text field does not specify an inputType [TextFields]
+    <EditText
+     ~~~~~~~~
+C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\res\layout\activity_create_scenario.xml:9: Warning: This text field does not specify an inputType [TextFields]
+    <EditText
+     ~~~~~~~~
+C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\res\layout\activity_create_scenario.xml:16: Warning: This text field does not specify an inputType [TextFields]
+    <EditText
+     ~~~~~~~~
+C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\res\layout\activity_edit_gamme.xml:14: Warning: This text field does not specify an inputType [TextFields]
+    <EditText
+     ~~~~~~~~
+
+   Explanation for issues of type "TextFields":
+   Providing an inputType attribute on a text field improves usability because
+   depending on the data to be input, optimized keyboards can be shown to the
+   user (such as just digits and parentheses for a phone number). 
+
+   The lint detector also looks at the id of the view, and if the id offers a
+   hint of the purpose of the field (for example, the id contains the phrase
+   phone or email), then lint will also ensure that the inputType contains the
+   corresponding type attributes.
+
+   If you really want to keep the text field generic, you can suppress this
+   warning by setting inputType="text".
+
+C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\res\layout\activity_create_gamme.xml:14: Warning: Missing autofillHints attribute [Autofill]
+    <EditText
+     ~~~~~~~~
+C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\res\layout\activity_create_scenario.xml:9: Warning: Missing autofillHints attribute [Autofill]
+    <EditText
+     ~~~~~~~~
+C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\res\layout\activity_create_scenario.xml:16: Warning: Missing autofillHints attribute [Autofill]
+    <EditText
+     ~~~~~~~~
+C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\res\layout\activity_edit_gamme.xml:14: Warning: Missing autofillHints attribute [Autofill]
+    <EditText
+     ~~~~~~~~
+C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\res\layout\activity_edit_scenario.xml:8: Warning: Missing autofillHints attribute [Autofill]
+    <EditText
+     ~~~~~~~~
+C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\res\layout\activity_edit_scenario.xml:16: Warning: Missing autofillHints attribute [Autofill]
+    <EditText
+     ~~~~~~~~
+C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\res\layout\activity_login.xml:12: Warning: Missing autofillHints attribute [Autofill]
+    <EditText
+     ~~~~~~~~
+C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\res\layout\activity_login.xml:22: Warning: Missing autofillHints attribute [Autofill]
+    <EditText
+     ~~~~~~~~
+C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\res\layout\fragment_connect.xml:10: Warning: Missing autofillHints attribute [Autofill]
+    <EditText
+     ~~~~~~~~
+
+   Explanation for issues of type "Autofill":
+   Specify an autofillHints attribute when targeting SDK version 26 or higher
+   or explicitly specify that the view is not important for autofill. Your app
+   can help an autofill service classify the data correctly by providing the
+   meaning of each view that could be autofillable, such as views representing
+   usernames, passwords, credit card fields, email addresses, etc.
+
+   The hints can have any value, but it is recommended to use predefined
+   values like 'username' for a username or 'creditCardNumber' for a credit
+   card number. For a list of all predefined autofill hint constants, see the
+   AUTOFILL_HINT_ constants in the View reference at
+   https://developer.android.com/reference/android/view/View.html.
+
+   You can mark a view unimportant for autofill by specifying an
+   importantForAutofill attribute on that view or a parent view. See
+   https://developer.android.com/reference/android/view/View.html#setImportant
+   ForAutofill(int).
+
+   https://developer.android.com/guide/topics/text/autofill.html
+
+C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\res\layout\fragment_config.xml:29: Warning: Missing contentDescription attribute on image [ContentDescription]
+        <ImageButton
+         ~~~~~~~~~~~
+C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\res\layout\fragment_config.xml:43: Warning: Missing contentDescription attribute on image [ContentDescription]
+        <ImageButton
+         ~~~~~~~~~~~
+C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\res\layout\fragment_config.xml:57: Warning: Missing contentDescription attribute on image [ContentDescription]
+        <ImageButton
+         ~~~~~~~~~~~
+C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\res\layout\fragment_config.xml:71: Warning: Missing contentDescription attribute on image [ContentDescription]
+        <ImageButton
+         ~~~~~~~~~~~
+C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\res\layout\fragment_config.xml:85: Warning: Missing contentDescription attribute on image [ContentDescription]
+        <ImageButton
+         ~~~~~~~~~~~
+C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\res\layout\fragment_config.xml:98: Warning: Missing contentDescription attribute on image [ContentDescription]
+        <ImageButton
+         ~~~~~~~~~~~
+C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\res\layout\fragment_remote.xml:10: Warning: Missing contentDescription attribute on image [ContentDescription]
+    <ImageView
+     ~~~~~~~~~
+C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\res\layout\fragment_remote.xml:21: Warning: Missing contentDescription attribute on image [ContentDescription]
+    <ImageView
+     ~~~~~~~~~
+C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\res\layout\fragment_remote.xml:32: Warning: Missing contentDescription attribute on image [ContentDescription]
+    <ImageView
+     ~~~~~~~~~
+C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\res\layout\fragment_remote.xml:43: Warning: Missing contentDescription attribute on image [ContentDescription]
+    <ImageView
+     ~~~~~~~~~
+C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\res\layout\fragment_remote.xml:54: Warning: Missing contentDescription attribute on image [ContentDescription]
+    <ImageView
+     ~~~~~~~~~
+C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\res\layout\fragment_remote.xml:65: Warning: Missing contentDescription attribute on image [ContentDescription]
+    <ImageView
+     ~~~~~~~~~
+
+   Explanation for issues of type "ContentDescription":
+   Non-textual widgets like ImageViews and ImageButtons should use the
+   contentDescription attribute to specify a textual description of the widget
+   such that screen readers and other accessibility tools can adequately
+   describe the user interface.
+
+   Note that elements in application screens that are purely decorative and do
+   not provide any content or enable a user action should not have
+   accessibility content descriptions. In this case, set their descriptions to
+   @null. If your app's minSdkVersion is 16 or higher, you can instead set
+   these graphical elements' android:importantForAccessibility attributes to
+   no.
+
+   Note that for text fields, you should not set both the hint and the
+   contentDescription attributes since the hint will never be shown. Just set
+   the hint.
+
+   https://developer.android.com/guide/topics/ui/accessibility/apps#special-cases
+
+C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\java\com\example\robotarmh25_remote\EditGammeActivity.java:49: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+        buttonSaveGamme.setText("Sauvegarder les modifications");
+                                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\java\com\example\robotarmh25_remote\MainMenuActivity.java:60: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+                        buttonConnexionRobot.setText("Déconnexion Robot");
+                                                     ~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "SetTextI18n":
+   When calling TextView#setText
+   * Never call Number#toString() to format numbers; it will not handle
+   fraction separators and locale-specific digits properly. Consider using
+   String#format with proper format specifications (%d or %f) instead.
+   * Do not pass a string literal (e.g. "Hello") to display text. Hardcoded
+   text can not be properly translated to other languages. Consider using
+   Android resource strings instead.
+   * Do not build messages by concatenating text chunks. Such messages can not
+   be properly translated.
+
+   https://developer.android.com/guide/topics/resources/localization.html
+
+C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\res\layout\activity_connexion.xml:15: Warning: Hardcoded string "Connexion", should use @string resource [HardcodedText]
+        android:text="Connexion"
+        ~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\res\layout\activity_create_gamme.xml:9: Warning: Hardcoded string "Donner un nom à votre gamme", should use @string resource [HardcodedText]
+        android:text="Donner un nom à votre gamme"
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\res\layout\activity_create_gamme.xml:16: Warning: Hardcoded string "Nom de la gamme", should use @string resource [HardcodedText]
+        android:hint="Nom de la gamme"
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\res\layout\activity_create_gamme.xml:46: Warning: Hardcoded string "Créer gamme", should use @string resource [HardcodedText]
+        android:text="Créer gamme"
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\res\layout\activity_create_scenario.xml:13: Warning: Hardcoded string "Nom du scénario", should use @string resource [HardcodedText]
+        android:hint="Nom du scénario" />
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\res\layout\activity_create_scenario.xml:20: Warning: Hardcoded string "Description", should use @string resource [HardcodedText]
+        android:hint="Description"
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\res\layout\activity_create_scenario.xml:38: Warning: Hardcoded string "Gammes disponibles", should use @string resource [HardcodedText]
+                android:text="Gammes disponibles" />
+                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\res\layout\activity_create_scenario.xml:56: Warning: Hardcoded string "Scénario (ordre)", should use @string resource [HardcodedText]
+                android:text="Scénario (ordre)" />
+                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\res\layout\activity_create_scenario.xml:70: Warning: Hardcoded string "Enregistrer le scénario", should use @string resource [HardcodedText]
+        android:text="Enregistrer le scénario"
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\res\layout\activity_edit_gamme.xml:9: Warning: Hardcoded string "Donner un nom à votre gamme", should use @string resource [HardcodedText]
+        android:text="Donner un nom à votre gamme"
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\res\layout\activity_edit_gamme.xml:16: Warning: Hardcoded string "Nom de la gamme", should use @string resource [HardcodedText]
+        android:hint="Nom de la gamme"
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\res\layout\activity_edit_gamme.xml:46: Warning: Hardcoded string "Créer gamme", should use @string resource [HardcodedText]
+        android:text="Créer gamme"
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\res\layout\activity_edit_scenario.xml:12: Warning: Hardcoded string "Nom du scénario", should use @string resource [HardcodedText]
+        android:hint="Nom du scénario"
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\res\layout\activity_edit_scenario.xml:20: Warning: Hardcoded string "Description", should use @string resource [HardcodedText]
+        android:hint="Description"
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\res\layout\activity_edit_scenario.xml:39: Warning: Hardcoded string "Gammes disponibles", should use @string resource [HardcodedText]
+                android:text="Gammes disponibles"
+                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\res\layout\activity_edit_scenario.xml:60: Warning: Hardcoded string "Gammes du scénario", should use @string resource [HardcodedText]
+                android:text="Gammes du scénario"
+                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\res\layout\activity_edit_scenario.xml:76: Warning: Hardcoded string "Sauvegarder", should use @string resource [HardcodedText]
+        android:text="Sauvegarder"
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\res\layout\activity_gamme_list.xml:12: Warning: Hardcoded string "Créer gamme", should use @string resource [HardcodedText]
+        android:text="Créer gamme"
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\res\layout\activity_login.xml:16: Warning: Hardcoded string "Nom d'utilisateur", should use @string resource [HardcodedText]
+        android:hint="Nom d'utilisateur"
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\res\layout\activity_login.xml:26: Warning: Hardcoded string "Mot de passe", should use @string resource [HardcodedText]
+        android:hint="Mot de passe"
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\res\layout\activity_login.xml:36: Warning: Hardcoded string "Connexion", should use @string resource [HardcodedText]
+        android:text="Connexion"
+        ~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\res\layout\activity_main_menu.xml:23: Warning: Hardcoded string "Connexion Robot", should use @string resource [HardcodedText]
+            android:text="Connexion Robot"
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\res\layout\activity_main_menu.xml:32: Warning: Hardcoded string "Déconnexion", should use @string resource [HardcodedText]
+            android:text="Déconnexion"
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\res\layout\activity_main_menu.xml:50: Warning: Hardcoded string "Gamme", should use @string resource [HardcodedText]
+            android:text="Gamme"
+            ~~~~~~~~~~~~~~~~~~~~
+C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\res\layout\activity_main_menu.xml:60: Warning: Hardcoded string "Scénario", should use @string resource [HardcodedText]
+            android:text="Scénario"
+            ~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\res\layout\activity_main_menu.xml:70: Warning: Hardcoded string "Envoyer Ordre", should use @string resource [HardcodedText]
+            android:text="Envoyer Ordre" 
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\res\layout\activity_scenario_list.xml:12: Warning: Hardcoded string "Ajouter un scénario", should use @string resource [HardcodedText]
+        android:text="Ajouter un scénario" />
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\res\layout\fragment_config.xml:119: Warning: Hardcoded string "Enregistrer", should use @string resource [HardcodedText]
+            android:text="Enregistrer"
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\res\layout\item_gamme.xml:21: Warning: Hardcoded string "Edit", should use @string resource [HardcodedText]
+        android:contentDescription="Edit"/>
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\res\layout\item_gamme.xml:28: Warning: Hardcoded string "Delete", should use @string resource [HardcodedText]
+        android:contentDescription="Delete"/>
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\res\layout\item_gamme_to_select.xml:13: Warning: Hardcoded string "Nom gamme", should use @string resource [HardcodedText]
+        android:text="Nom gamme"
+        ~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\res\layout\item_scenario.xml:21: Warning: Hardcoded string "Nom scénario", should use @string resource [HardcodedText]
+            android:text="Nom scénario" />
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\res\layout\item_scenario.xml:35: Warning: Hardcoded string "Modifier", should use @string resource [HardcodedText]
+        android:text="Modifier" />
+        ~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\res\layout\item_scenario.xml:42: Warning: Hardcoded string "Supprimer", should use @string resource [HardcodedText]
+        android:text="Supprimer"/>
+        ~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\res\layout\item_selected_action.xml:14: Warning: Hardcoded string "Action", should use @string resource [HardcodedText]
+        android:text="Action"
+        ~~~~~~~~~~~~~~~~~~~~~
+C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\res\layout\item_selected_action.xml:22: Warning: Hardcoded string "Up", should use @string resource [HardcodedText]
+        android:contentDescription="Up"
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\res\layout\item_selected_action.xml:30: Warning: Hardcoded string "Down", should use @string resource [HardcodedText]
+        android:contentDescription="Down"
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\res\layout\item_selected_gamme.xml:15: Warning: Hardcoded string "Nom gamme", should use @string resource [HardcodedText]
+        android:text="Nom gamme" />
+        ~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\res\layout\item_selected_gamme.xml:22: Warning: Hardcoded string "Monter", should use @string resource [HardcodedText]
+        android:contentDescription="Monter"
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\res\layout\item_selected_gamme.xml:30: Warning: Hardcoded string "Descendre", should use @string resource [HardcodedText]
+        android:contentDescription="Descendre"
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\res\layout\item_selected_gamme.xml:38: Warning: Hardcoded string "Supprimer", should use @string resource [HardcodedText]
+        android:contentDescription="Supprimer"
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "HardcodedText":
+   Hardcoding text attributes directly in layout files is bad for several
+   reasons:
+
+   * When creating configuration variations (for example for landscape or
+   portrait) you have to repeat the actual text (and keep it up to date when
+   making changes)
+
+   * The application cannot be translated to other languages by just adding
+   new translations for existing string resources.
+
+   There are quickfixes to automatically extract this hardcoded string into a
+   resource lookup.
+
+C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\res\layout\fragment_config.xml:20: Warning: Redundant attribute layout_marginLeft; already defining layout_marginStart with targetSdkVersion 34 [RtlHardcoded]
+            android:layout_marginLeft="70dp"
+            ~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\res\layout\fragment_config.xml:34: Warning: Redundant attribute layout_marginLeft; already defining layout_marginStart with targetSdkVersion 34 [RtlHardcoded]
+            android:layout_marginLeft="76dp"
+            ~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\res\layout\fragment_config.xml:49: Warning: Redundant attribute layout_marginRight; already defining layout_marginEnd with targetSdkVersion 34 [RtlHardcoded]
+            android:layout_marginRight="76dp"
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\res\layout\fragment_config.xml:63: Warning: Redundant attribute layout_marginRight; already defining layout_marginEnd with targetSdkVersion 34 [RtlHardcoded]
+            android:layout_marginRight="76dp"
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\res\layout\fragment_config.xml:76: Warning: Redundant attribute layout_marginLeft; already defining layout_marginStart with targetSdkVersion 34 [RtlHardcoded]
+            android:layout_marginLeft="76dp"
+            ~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\res\layout\fragment_config.xml:118: Warning: Redundant attribute layout_marginRight; already defining layout_marginEnd with targetSdkVersion 34 [RtlHardcoded]
+            android:layout_marginRight="16dp"
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\res\layout\fragment_connect.xml:15: Warning: Redundant attribute layout_marginLeft; already defining layout_marginStart with targetSdkVersion 34 [RtlHardcoded]
+        android:layout_marginLeft="100dp"
+        ~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\res\layout\fragment_connect.xml:32: Warning: Redundant attribute layout_marginLeft; already defining layout_marginStart with targetSdkVersion 34 [RtlHardcoded]
+        android:layout_marginLeft="132dp"
+        ~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\res\layout\item_scenario.xml:41: Warning: Consider replacing android:layout_marginLeft with android:layout_marginStart="8dp" to better support right-to-left layouts [RtlHardcoded]
+        android:layout_marginLeft="8dp"
+        ~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "RtlHardcoded":
+   Using Gravity#LEFT and Gravity#RIGHT can lead to problems when a layout is
+   rendered in locales where text flows from right to left. Use Gravity#START
+   and Gravity#END instead. Similarly, in XML gravity and layout_gravity
+   attributes, use start rather than left.
+
+   For XML attributes such as paddingLeft and layout_marginLeft, use
+   paddingStart and layout_marginStart. NOTE: If your minSdkVersion is less
+   than 17, you should add both the older left/right attributes as well as the
+   new start/end attributes. On older platforms, where RTL is not supported
+   and the start/end attributes are unknown and therefore ignored, you need
+   the older left/right attributes. There is a separate lint check which
+   catches that type of error.
+
+   (Note: For Gravity#LEFT and Gravity#START, you can use these constants even
+   when targeting older platforms, because the start bitmask is a superset of
+   the left bitmask. Therefore, you can use gravity="start" rather than
+   gravity="left|start".)
+
+0 errors, 158 warnings

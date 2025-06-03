@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white">
+
+    <!-- Top-right container for Connexion Robot and Déconnexion -->
+    <LinearLayout
+        android:id="@+id/topRightContainer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="end"
+        android:orientation="horizontal"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="16dp">
+
+        <Button
+            android:id="@+id/buttonConnexionRobot"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Connexion Robot"
+            android:layout_marginEnd="8dp"
+            android:backgroundTint="@color/green"
+            android:textColor="@android:color/white" />
+
+        <Button
+            android:id="@+id/buttonDeconnexion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Déconnexion"
+            android:backgroundTint="@color/red"
+            android:textColor="@android:color/white" />
+    </LinearLayout>
+
+    <!-- Middle container for Gamme & Scénario buttons -->
+    <LinearLayout
+        android:id="@+id/centerContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:layout_centerInParent="true">
+
+        <Button
+            android:id="@+id/buttonGamme"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:text="Gamme"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/button_background_gray"
+            android:textSize="18sp"
+            android:textColor="@android:color/black" />
+
+        <Button
+            android:id="@+id/buttonScenario"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:text="Scénario"
+            android:background="@drawable/button_background_gray"
+            android:textSize="18sp"
+            android:layout_marginBottom="16dp"
+            android:textColor="@android:color/black" />
+
+        <Button
+            android:id="@+id/buttonSendOrder"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_background_gray"
+            android:text="Envoyer Ordre"
+            android:textColor="@android:color/black"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+</RelativeLayout>

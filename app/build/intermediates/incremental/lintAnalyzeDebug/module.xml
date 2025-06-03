@@ -1,0 +1,19 @@
+<lint-module
+    format="1"
+    dir="C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app"
+    name=":app"
+    type="APP"
+    maven="RobotArmH25-Remote:app:unspecified"
+    agpVersion="8.7.3"
+    buildFolder="build"
+    bootClassPath="C:\Users\alexr\AppData\Local\Android\Sdk\platforms\android-34\android.jar;C:\Users\alexr\AppData\Local\Android\Sdk\build-tools\34.0.0\core-lambda-stubs.jar"
+    javaSourceLevel="1.8"
+    compileTarget="android-34"
+    neverShrinking="true">
+  <lintOptions
+      abortOnError="true"
+      absolutePaths="true"
+      checkReleaseBuilds="true"
+      explainIssues="true"/>
+  <variant name="debug"/>
+</lint-module>

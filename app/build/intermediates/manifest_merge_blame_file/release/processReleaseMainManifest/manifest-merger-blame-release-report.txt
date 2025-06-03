@@ -1,0 +1,208 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.example.robotarmh25_remote"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="21"
+9        android:targetSdkVersion="34" />
+10
+11    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+11-->C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\AndroidManifest.xml:4:5-80
+11-->C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\AndroidManifest.xml:4:22-77
+12    <uses-permission
+12-->C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\AndroidManifest.xml:5:5-105
+13        android:name="android.permission.BLUETOOTH"
+13-->C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\AndroidManifest.xml:5:22-65
+14        android:required="false" />
+14-->C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\AndroidManifest.xml:5:78-102
+15    <uses-permission
+15-->C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\AndroidManifest.xml:6:5-105
+16        android:name="android.permission.BLUETOOTH_ADMIN"
+16-->C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\AndroidManifest.xml:6:22-71
+17        android:required="false" />
+17-->C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\AndroidManifest.xml:6:78-102
+18
+19    <!--
+20         Nouvelles permissions (API 31 +) : ajoute required=\"false\" pour que l’APK reste installable
+21         sur les vieilles versions, et l’attribut usesPermissionFlags pour éviter l’erreur
+22         « Bluetooth scan used for location » sur Android 13 .
+23    -->
+24    <uses-permission
+24-->C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\AndroidManifest.xml:11:5-12:48
+25        android:name="android.permission.BLUETOOTH_CONNECT"
+25-->C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\AndroidManifest.xml:11:22-73
+26        android:required="false" />
+26-->C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\AndroidManifest.xml:12:22-46
+27    <uses-permission
+27-->C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\AndroidManifest.xml:14:5-16:70
+28        android:name="android.permission.BLUETOOTH_SCAN"
+28-->C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\AndroidManifest.xml:14:22-70
+29        android:required="false"
+29-->C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\AndroidManifest.xml:15:22-46
+30        android:usesPermissionFlags="neverForLocation" />
+30-->C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\AndroidManifest.xml:16:22-68
+31    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+31-->C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\AndroidManifest.xml:18:5-79
+31-->C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\AndroidManifest.xml:18:22-76
+32    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+32-->C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\AndroidManifest.xml:19:5-81
+32-->C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\AndroidManifest.xml:19:22-78
+33
+34    <permission
+34-->[androidx.core:core:1.13.0] C:\Users\alexr\.gradle\caches\8.9\transforms\b203f511e6f88234a93304f4ae9934a6\transformed\core-1.13.0\AndroidManifest.xml:22:5-24:47
+35        android:name="com.example.robotarmh25_remote.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+35-->[androidx.core:core:1.13.0] C:\Users\alexr\.gradle\caches\8.9\transforms\b203f511e6f88234a93304f4ae9934a6\transformed\core-1.13.0\AndroidManifest.xml:23:9-81
+36        android:protectionLevel="signature" />
+36-->[androidx.core:core:1.13.0] C:\Users\alexr\.gradle\caches\8.9\transforms\b203f511e6f88234a93304f4ae9934a6\transformed\core-1.13.0\AndroidManifest.xml:24:9-44
+37
+38    <uses-permission android:name="com.example.robotarmh25_remote.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+38-->[androidx.core:core:1.13.0] C:\Users\alexr\.gradle\caches\8.9\transforms\b203f511e6f88234a93304f4ae9934a6\transformed\core-1.13.0\AndroidManifest.xml:26:5-97
+38-->[androidx.core:core:1.13.0] C:\Users\alexr\.gradle\caches\8.9\transforms\b203f511e6f88234a93304f4ae9934a6\transformed\core-1.13.0\AndroidManifest.xml:26:22-94
+39
+40    <application
+40-->C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\AndroidManifest.xml:21:5-51:19
+41        android:allowBackup="true"
+41-->C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\AndroidManifest.xml:22:9-35
+42        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+42-->[androidx.core:core:1.13.0] C:\Users\alexr\.gradle\caches\8.9\transforms\b203f511e6f88234a93304f4ae9934a6\transformed\core-1.13.0\AndroidManifest.xml:28:18-86
+43        android:extractNativeLibs="true"
+44        android:icon="@mipmap/ic_launcher"
+44-->C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\AndroidManifest.xml:23:9-43
+45        android:label="@string/app_name"
+45-->C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\AndroidManifest.xml:24:9-41
+46        android:roundIcon="@mipmap/ic_launcher_round"
+46-->C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\AndroidManifest.xml:25:9-54
+47        android:supportsRtl="true"
+47-->C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\AndroidManifest.xml:26:9-35
+48        android:theme="@style/Theme.RobotArmH25Remote" >
+48-->C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\AndroidManifest.xml:27:9-55
+49        <activity
+49-->C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\AndroidManifest.xml:29:9-35:20
+50            android:name="com.example.robotarmh25_remote.LoginActivity"
+50-->C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\AndroidManifest.xml:29:19-48
+51            android:exported="true" >
+51-->C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\AndroidManifest.xml:30:13-36
+52            <intent-filter>
+52-->C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\AndroidManifest.xml:31:13-34:29
+53                <action android:name="android.intent.action.MAIN" />
+53-->C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\AndroidManifest.xml:32:17-69
+53-->C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\AndroidManifest.xml:32:25-66
+54
+55                <category android:name="android.intent.category.LAUNCHER" />
+55-->C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\AndroidManifest.xml:33:17-77
+55-->C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\AndroidManifest.xml:33:27-74
+56            </intent-filter>
+57        </activity>
+58
+59        <!-- The next screen, e.g., MainMenuActivity -->
+60        <activity android:name="com.example.robotarmh25_remote.MainMenuActivity" />
+60-->C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\AndroidManifest.xml:38:9-54
+60-->C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\AndroidManifest.xml:38:19-51
+61        <activity
+61-->C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\AndroidManifest.xml:40:9-42:39
+62            android:name="com.example.robotarmh25_remote.ConnectActivity"
+62-->C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\AndroidManifest.xml:41:13-44
+63            android:exported="true" />
+63-->C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\AndroidManifest.xml:42:13-36
+64        <activity android:name="com.example.robotarmh25_remote.GammeListActivity" />
+64-->C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\AndroidManifest.xml:44:9-55
+64-->C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\AndroidManifest.xml:44:19-52
+65        <activity android:name="com.example.robotarmh25_remote.EditGammeActivity" />
+65-->C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\AndroidManifest.xml:45:9-55
+65-->C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\AndroidManifest.xml:45:19-52
+66        <activity android:name="com.example.robotarmh25_remote.CreateGammeActivity" />
+66-->C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\AndroidManifest.xml:46:9-57
+66-->C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\AndroidManifest.xml:46:19-54
+67        <activity android:name="com.example.robotarmh25_remote.ScenarioListActivity" />
+67-->C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\AndroidManifest.xml:48:9-58
+67-->C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\AndroidManifest.xml:48:19-55
+68        <activity android:name="com.example.robotarmh25_remote.CreateScenarioActivity" />
+68-->C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\AndroidManifest.xml:49:9-60
+68-->C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\AndroidManifest.xml:49:19-57
+69        <activity android:name="com.example.robotarmh25_remote.EditScenarioActivity" />
+69-->C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\AndroidManifest.xml:50:9-58
+69-->C:\Users\alexr\Downloads\ELEVATOR_Android-main\app-android-inge-log-master\app\src\main\AndroidManifest.xml:50:19-55
+70
+71        <provider
+71-->[androidx.emoji2:emoji2:1.3.0] C:\Users\alexr\.gradle\caches\8.9\transforms\4b2e9da422399d3b8d0c0b44a59c7b60\transformed\jetified-emoji2-1.3.0\AndroidManifest.xml:24:9-32:20
+72            android:name="androidx.startup.InitializationProvider"
+72-->[androidx.emoji2:emoji2:1.3.0] C:\Users\alexr\.gradle\caches\8.9\transforms\4b2e9da422399d3b8d0c0b44a59c7b60\transformed\jetified-emoji2-1.3.0\AndroidManifest.xml:25:13-67
+73            android:authorities="com.example.robotarmh25_remote.androidx-startup"
+73-->[androidx.emoji2:emoji2:1.3.0] C:\Users\alexr\.gradle\caches\8.9\transforms\4b2e9da422399d3b8d0c0b44a59c7b60\transformed\jetified-emoji2-1.3.0\AndroidManifest.xml:26:13-68
+74            android:exported="false" >
+74-->[androidx.emoji2:emoji2:1.3.0] C:\Users\alexr\.gradle\caches\8.9\transforms\4b2e9da422399d3b8d0c0b44a59c7b60\transformed\jetified-emoji2-1.3.0\AndroidManifest.xml:27:13-37
+75            <meta-data
+75-->[androidx.emoji2:emoji2:1.3.0] C:\Users\alexr\.gradle\caches\8.9\transforms\4b2e9da422399d3b8d0c0b44a59c7b60\transformed\jetified-emoji2-1.3.0\AndroidManifest.xml:29:13-31:52
+76                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+76-->[androidx.emoji2:emoji2:1.3.0] C:\Users\alexr\.gradle\caches\8.9\transforms\4b2e9da422399d3b8d0c0b44a59c7b60\transformed\jetified-emoji2-1.3.0\AndroidManifest.xml:30:17-75
+77                android:value="androidx.startup" />
+77-->[androidx.emoji2:emoji2:1.3.0] C:\Users\alexr\.gradle\caches\8.9\transforms\4b2e9da422399d3b8d0c0b44a59c7b60\transformed\jetified-emoji2-1.3.0\AndroidManifest.xml:31:17-49
+78            <meta-data
+78-->[androidx.lifecycle:lifecycle-process:2.8.7] C:\Users\alexr\.gradle\caches\8.9\transforms\78d309e61e298537b47239524d4db6e5\transformed\jetified-lifecycle-process-2.8.7\AndroidManifest.xml:29:13-31:52
+79                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+79-->[androidx.lifecycle:lifecycle-process:2.8.7] C:\Users\alexr\.gradle\caches\8.9\transforms\78d309e61e298537b47239524d4db6e5\transformed\jetified-lifecycle-process-2.8.7\AndroidManifest.xml:30:17-78
+80                android:value="androidx.startup" />
+80-->[androidx.lifecycle:lifecycle-process:2.8.7] C:\Users\alexr\.gradle\caches\8.9\transforms\78d309e61e298537b47239524d4db6e5\transformed\jetified-lifecycle-process-2.8.7\AndroidManifest.xml:31:17-49
+81            <meta-data
+81-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\alexr\.gradle\caches\8.9\transforms\f7fd7462403387de1a7022e7e5c99f9d\transformed\jetified-profileinstaller-1.4.0\AndroidManifest.xml:29:13-31:52
+82                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+82-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\alexr\.gradle\caches\8.9\transforms\f7fd7462403387de1a7022e7e5c99f9d\transformed\jetified-profileinstaller-1.4.0\AndroidManifest.xml:30:17-85
+83                android:value="androidx.startup" />
+83-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\alexr\.gradle\caches\8.9\transforms\f7fd7462403387de1a7022e7e5c99f9d\transformed\jetified-profileinstaller-1.4.0\AndroidManifest.xml:31:17-49
+84        </provider>
+85
+86        <uses-library
+86-->[androidx.window:window:1.0.0] C:\Users\alexr\.gradle\caches\8.9\transforms\f140351184815a5ff91a1cb75f8b4a0c\transformed\jetified-window-1.0.0\AndroidManifest.xml:25:9-27:40
+87            android:name="androidx.window.extensions"
+87-->[androidx.window:window:1.0.0] C:\Users\alexr\.gradle\caches\8.9\transforms\f140351184815a5ff91a1cb75f8b4a0c\transformed\jetified-window-1.0.0\AndroidManifest.xml:26:13-54
+88            android:required="false" />
+88-->[androidx.window:window:1.0.0] C:\Users\alexr\.gradle\caches\8.9\transforms\f140351184815a5ff91a1cb75f8b4a0c\transformed\jetified-window-1.0.0\AndroidManifest.xml:27:13-37
+89        <uses-library
+89-->[androidx.window:window:1.0.0] C:\Users\alexr\.gradle\caches\8.9\transforms\f140351184815a5ff91a1cb75f8b4a0c\transformed\jetified-window-1.0.0\AndroidManifest.xml:28:9-30:40
+90            android:name="androidx.window.sidecar"
+90-->[androidx.window:window:1.0.0] C:\Users\alexr\.gradle\caches\8.9\transforms\f140351184815a5ff91a1cb75f8b4a0c\transformed\jetified-window-1.0.0\AndroidManifest.xml:29:13-51
+91            android:required="false" />
+91-->[androidx.window:window:1.0.0] C:\Users\alexr\.gradle\caches\8.9\transforms\f140351184815a5ff91a1cb75f8b4a0c\transformed\jetified-window-1.0.0\AndroidManifest.xml:30:13-37
+92
+93        <receiver
+93-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\alexr\.gradle\caches\8.9\transforms\f7fd7462403387de1a7022e7e5c99f9d\transformed\jetified-profileinstaller-1.4.0\AndroidManifest.xml:34:9-52:20
+94            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+94-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\alexr\.gradle\caches\8.9\transforms\f7fd7462403387de1a7022e7e5c99f9d\transformed\jetified-profileinstaller-1.4.0\AndroidManifest.xml:35:13-76
+95            android:directBootAware="false"
+95-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\alexr\.gradle\caches\8.9\transforms\f7fd7462403387de1a7022e7e5c99f9d\transformed\jetified-profileinstaller-1.4.0\AndroidManifest.xml:36:13-44
+96            android:enabled="true"
+96-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\alexr\.gradle\caches\8.9\transforms\f7fd7462403387de1a7022e7e5c99f9d\transformed\jetified-profileinstaller-1.4.0\AndroidManifest.xml:37:13-35
+97            android:exported="true"
+97-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\alexr\.gradle\caches\8.9\transforms\f7fd7462403387de1a7022e7e5c99f9d\transformed\jetified-profileinstaller-1.4.0\AndroidManifest.xml:38:13-36
+98            android:permission="android.permission.DUMP" >
+98-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\alexr\.gradle\caches\8.9\transforms\f7fd7462403387de1a7022e7e5c99f9d\transformed\jetified-profileinstaller-1.4.0\AndroidManifest.xml:39:13-57
+99            <intent-filter>
+99-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\alexr\.gradle\caches\8.9\transforms\f7fd7462403387de1a7022e7e5c99f9d\transformed\jetified-profileinstaller-1.4.0\AndroidManifest.xml:40:13-42:29
+100                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+100-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\alexr\.gradle\caches\8.9\transforms\f7fd7462403387de1a7022e7e5c99f9d\transformed\jetified-profileinstaller-1.4.0\AndroidManifest.xml:41:17-91
+100-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\alexr\.gradle\caches\8.9\transforms\f7fd7462403387de1a7022e7e5c99f9d\transformed\jetified-profileinstaller-1.4.0\AndroidManifest.xml:41:25-88
+101            </intent-filter>
+102            <intent-filter>
+102-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\alexr\.gradle\caches\8.9\transforms\f7fd7462403387de1a7022e7e5c99f9d\transformed\jetified-profileinstaller-1.4.0\AndroidManifest.xml:43:13-45:29
+103                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
+103-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\alexr\.gradle\caches\8.9\transforms\f7fd7462403387de1a7022e7e5c99f9d\transformed\jetified-profileinstaller-1.4.0\AndroidManifest.xml:44:17-85
+103-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\alexr\.gradle\caches\8.9\transforms\f7fd7462403387de1a7022e7e5c99f9d\transformed\jetified-profileinstaller-1.4.0\AndroidManifest.xml:44:25-82
+104            </intent-filter>
+105            <intent-filter>
+105-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\alexr\.gradle\caches\8.9\transforms\f7fd7462403387de1a7022e7e5c99f9d\transformed\jetified-profileinstaller-1.4.0\AndroidManifest.xml:46:13-48:29
+106                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
+106-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\alexr\.gradle\caches\8.9\transforms\f7fd7462403387de1a7022e7e5c99f9d\transformed\jetified-profileinstaller-1.4.0\AndroidManifest.xml:47:17-88
+106-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\alexr\.gradle\caches\8.9\transforms\f7fd7462403387de1a7022e7e5c99f9d\transformed\jetified-profileinstaller-1.4.0\AndroidManifest.xml:47:25-85
+107            </intent-filter>
+108            <intent-filter>
+108-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\alexr\.gradle\caches\8.9\transforms\f7fd7462403387de1a7022e7e5c99f9d\transformed\jetified-profileinstaller-1.4.0\AndroidManifest.xml:49:13-51:29
+109                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
+109-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\alexr\.gradle\caches\8.9\transforms\f7fd7462403387de1a7022e7e5c99f9d\transformed\jetified-profileinstaller-1.4.0\AndroidManifest.xml:50:17-95
+109-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\alexr\.gradle\caches\8.9\transforms\f7fd7462403387de1a7022e7e5c99f9d\transformed\jetified-profileinstaller-1.4.0\AndroidManifest.xml:50:25-92
+110            </intent-filter>
+111        </receiver>
+112    </application>
+113
+114</manifest>

@@ -1,0 +1,202 @@
+[
+    {
+        "merged": "C:\\Users\\alexr\\.gradle\\daemon\\8.9\\com.example.robotarmh25_remote.app-release-44:\\layout_nav_header_main.xml.flat",
+        "source": "C:\\Users\\alexr\\.gradle\\daemon\\8.9\\com.example.robotarmh25_remote.app-main-45:\\layout\\nav_header_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\alexr\\.gradle\\daemon\\8.9\\com.example.robotarmh25_remote.app-release-44:\\drawable_ic_rotate_right_black_24dp.xml.flat",
+        "source": "C:\\Users\\alexr\\.gradle\\daemon\\8.9\\com.example.robotarmh25_remote.app-main-45:\\drawable\\ic_rotate_right_black_24dp.xml"
+    },
+    {
+        "merged": "C:\\Users\\alexr\\.gradle\\daemon\\8.9\\com.example.robotarmh25_remote.app-release-44:\\layout_activity_main.xml.flat",
+        "source": "C:\\Users\\alexr\\.gradle\\daemon\\8.9\\com.example.robotarmh25_remote.app-main-45:\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\alexr\\.gradle\\daemon\\8.9\\com.example.robotarmh25_remote.app-release-44:\\layout_item_selected_action.xml.flat",
+        "source": "C:\\Users\\alexr\\.gradle\\daemon\\8.9\\com.example.robotarmh25_remote.app-main-45:\\layout\\item_selected_action.xml"
+    },
+    {
+        "merged": "C:\\Users\\alexr\\.gradle\\daemon\\8.9\\com.example.robotarmh25_remote.app-release-44:\\layout_item_gamme_to_select.xml.flat",
+        "source": "C:\\Users\\alexr\\.gradle\\daemon\\8.9\\com.example.robotarmh25_remote.app-main-45:\\layout\\item_gamme_to_select.xml"
+    },
+    {
+        "merged": "C:\\Users\\alexr\\.gradle\\daemon\\8.9\\com.example.robotarmh25_remote.app-release-44:\\mipmap-xhdpi_ic_launcher_round.png.flat",
+        "source": "C:\\Users\\alexr\\.gradle\\daemon\\8.9\\com.example.robotarmh25_remote.app-main-45:\\mipmap-xhdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "com.example.robotarmh25_remote.app-release-44:/layout_fragment_remote.xml.flat",
+        "source": "com.example.robotarmh25_remote.app-main-45:/layout/fragment_remote.xml"
+    },
+    {
+        "merged": "C:\\Users\\alexr\\.gradle\\daemon\\8.9\\com.example.robotarmh25_remote.app-release-44:\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "C:\\Users\\alexr\\.gradle\\daemon\\8.9\\com.example.robotarmh25_remote.app-main-45:\\mipmap-anydpi-v26\\ic_launcher_round.xml"
+    },
+    {
+        "merged": "C:\\Users\\alexr\\.gradle\\daemon\\8.9\\com.example.robotarmh25_remote.app-release-44:\\drawable_ic_open_in_full_black_24dp.xml.flat",
+        "source": "C:\\Users\\alexr\\.gradle\\daemon\\8.9\\com.example.robotarmh25_remote.app-main-45:\\drawable\\ic_open_in_full_black_24dp.xml"
+    },
+    {
+        "merged": "C:\\Users\\alexr\\.gradle\\daemon\\8.9\\com.example.robotarmh25_remote.app-release-44:\\layout_activity_connect.xml.flat",
+        "source": "C:\\Users\\alexr\\.gradle\\daemon\\8.9\\com.example.robotarmh25_remote.app-main-45:\\layout\\activity_connect.xml"
+    },
+    {
+        "merged": "C:\\Users\\alexr\\.gradle\\daemon\\8.9\\com.example.robotarmh25_remote.app-release-44:\\layout_activity_edit_gamme.xml.flat",
+        "source": "C:\\Users\\alexr\\.gradle\\daemon\\8.9\\com.example.robotarmh25_remote.app-main-45:\\layout\\activity_edit_gamme.xml"
+    },
+    {
+        "merged": "C:\\Users\\alexr\\.gradle\\daemon\\8.9\\com.example.robotarmh25_remote.app-release-44:\\mipmap-xxhdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\alexr\\.gradle\\daemon\\8.9\\com.example.robotarmh25_remote.app-main-45:\\mipmap-xxhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\alexr\\.gradle\\daemon\\8.9\\com.example.robotarmh25_remote.app-release-44:\\layout_activity_gamme_list.xml.flat",
+        "source": "C:\\Users\\alexr\\.gradle\\daemon\\8.9\\com.example.robotarmh25_remote.app-main-45:\\layout\\activity_gamme_list.xml"
+    },
+    {
+        "merged": "C:\\Users\\alexr\\.gradle\\daemon\\8.9\\com.example.robotarmh25_remote.app-release-44:\\mipmap-xhdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\alexr\\.gradle\\daemon\\8.9\\com.example.robotarmh25_remote.app-main-45:\\mipmap-xhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\alexr\\.gradle\\daemon\\8.9\\com.example.robotarmh25_remote.app-release-44:\\mipmap-xxhdpi_ic_launcher_round.png.flat",
+        "source": "C:\\Users\\alexr\\.gradle\\daemon\\8.9\\com.example.robotarmh25_remote.app-main-45:\\mipmap-xxhdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "C:\\Users\\alexr\\.gradle\\daemon\\8.9\\com.example.robotarmh25_remote.app-release-44:\\layout_activity_connexion.xml.flat",
+        "source": "C:\\Users\\alexr\\.gradle\\daemon\\8.9\\com.example.robotarmh25_remote.app-main-45:\\layout\\activity_connexion.xml"
+    },
+    {
+        "merged": "C:\\Users\\alexr\\.gradle\\daemon\\8.9\\com.example.robotarmh25_remote.app-release-44:\\drawable_ic_launcher_background.xml.flat",
+        "source": "C:\\Users\\alexr\\.gradle\\daemon\\8.9\\com.example.robotarmh25_remote.app-main-45:\\drawable\\ic_launcher_background.xml"
+    },
+    {
+        "merged": "C:\\Users\\alexr\\.gradle\\daemon\\8.9\\com.example.robotarmh25_remote.app-release-44:\\drawable_ic_arrow_upward_black_24dp.xml.flat",
+        "source": "C:\\Users\\alexr\\.gradle\\daemon\\8.9\\com.example.robotarmh25_remote.app-main-45:\\drawable\\ic_arrow_upward_black_24dp.xml"
+    },
+    {
+        "merged": "C:\\Users\\alexr\\.gradle\\daemon\\8.9\\com.example.robotarmh25_remote.app-release-44:\\layout_activity_create_scenario.xml.flat",
+        "source": "C:\\Users\\alexr\\.gradle\\daemon\\8.9\\com.example.robotarmh25_remote.app-main-45:\\layout\\activity_create_scenario.xml"
+    },
+    {
+        "merged": "C:\\Users\\alexr\\.gradle\\daemon\\8.9\\com.example.robotarmh25_remote.app-release-44:\\mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "C:\\Users\\alexr\\.gradle\\daemon\\8.9\\com.example.robotarmh25_remote.app-main-45:\\mipmap-anydpi-v26\\ic_launcher.xml"
+    },
+    {
+        "merged": "C:\\Users\\alexr\\.gradle\\daemon\\8.9\\com.example.robotarmh25_remote.app-release-44:\\drawable_side_nav_bar.xml.flat",
+        "source": "C:\\Users\\alexr\\.gradle\\daemon\\8.9\\com.example.robotarmh25_remote.app-main-45:\\drawable\\side_nav_bar.xml"
+    },
+    {
+        "merged": "C:\\Users\\alexr\\.gradle\\daemon\\8.9\\com.example.robotarmh25_remote.app-release-44:\\mipmap-xxxhdpi_ic_launcher_round.png.flat",
+        "source": "C:\\Users\\alexr\\.gradle\\daemon\\8.9\\com.example.robotarmh25_remote.app-main-45:\\mipmap-xxxhdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "C:\\Users\\alexr\\.gradle\\daemon\\8.9\\com.example.robotarmh25_remote.app-release-44:\\layout_item_scenario.xml.flat",
+        "source": "C:\\Users\\alexr\\.gradle\\daemon\\8.9\\com.example.robotarmh25_remote.app-main-45:\\layout\\item_scenario.xml"
+    },
+    {
+        "merged": "C:\\Users\\alexr\\.gradle\\daemon\\8.9\\com.example.robotarmh25_remote.app-release-44:\\layout_activity_edit_scenario.xml.flat",
+        "source": "C:\\Users\\alexr\\.gradle\\daemon\\8.9\\com.example.robotarmh25_remote.app-main-45:\\layout\\activity_edit_scenario.xml"
+    },
+    {
+        "merged": "C:\\Users\\alexr\\.gradle\\daemon\\8.9\\com.example.robotarmh25_remote.app-release-44:\\mipmap-xxxhdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\alexr\\.gradle\\daemon\\8.9\\com.example.robotarmh25_remote.app-main-45:\\mipmap-xxxhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\alexr\\.gradle\\daemon\\8.9\\com.example.robotarmh25_remote.app-release-44:\\mipmap-mdpi_ic_launcher_round.png.flat",
+        "source": "C:\\Users\\alexr\\.gradle\\daemon\\8.9\\com.example.robotarmh25_remote.app-main-45:\\mipmap-mdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "C:\\Users\\alexr\\.gradle\\daemon\\8.9\\com.example.robotarmh25_remote.app-release-44:\\layout_activity_scenario_list.xml.flat",
+        "source": "C:\\Users\\alexr\\.gradle\\daemon\\8.9\\com.example.robotarmh25_remote.app-main-45:\\layout\\activity_scenario_list.xml"
+    },
+    {
+        "merged": "C:\\Users\\alexr\\.gradle\\daemon\\8.9\\com.example.robotarmh25_remote.app-release-44:\\mipmap-hdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\alexr\\.gradle\\daemon\\8.9\\com.example.robotarmh25_remote.app-main-45:\\mipmap-hdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\alexr\\.gradle\\daemon\\8.9\\com.example.robotarmh25_remote.app-release-44:\\layout_activity_main_menu.xml.flat",
+        "source": "C:\\Users\\alexr\\.gradle\\daemon\\8.9\\com.example.robotarmh25_remote.app-main-45:\\layout\\activity_main_menu.xml"
+    },
+    {
+        "merged": "C:\\Users\\alexr\\.gradle\\daemon\\8.9\\com.example.robotarmh25_remote.app-release-44:\\drawable_ic_precision_manufacturing_black_24dp.xml.flat",
+        "source": "C:\\Users\\alexr\\.gradle\\daemon\\8.9\\com.example.robotarmh25_remote.app-main-45:\\drawable\\ic_precision_manufacturing_black_24dp.xml"
+    },
+    {
+        "merged": "C:\\Users\\alexr\\.gradle\\daemon\\8.9\\com.example.robotarmh25_remote.app-release-44:\\drawable_ic_arrow_downward_black_24dp.xml.flat",
+        "source": "C:\\Users\\alexr\\.gradle\\daemon\\8.9\\com.example.robotarmh25_remote.app-main-45:\\drawable\\ic_arrow_downward_black_24dp.xml"
+    },
+    {
+        "merged": "C:\\Users\\alexr\\.gradle\\daemon\\8.9\\com.example.robotarmh25_remote.app-release-44:\\navigation_mobile_navigation.xml.flat",
+        "source": "C:\\Users\\alexr\\.gradle\\daemon\\8.9\\com.example.robotarmh25_remote.app-main-45:\\navigation\\mobile_navigation.xml"
+    },
+    {
+        "merged": "C:\\Users\\alexr\\.gradle\\daemon\\8.9\\com.example.robotarmh25_remote.app-release-44:\\drawable_ic_rotate_left_black_24dp.xml.flat",
+        "source": "C:\\Users\\alexr\\.gradle\\daemon\\8.9\\com.example.robotarmh25_remote.app-main-45:\\drawable\\ic_rotate_left_black_24dp.xml"
+    },
+    {
+        "merged": "C:\\Users\\alexr\\.gradle\\daemon\\8.9\\com.example.robotarmh25_remote.app-release-44:\\menu_activity_main_drawer.xml.flat",
+        "source": "C:\\Users\\alexr\\.gradle\\daemon\\8.9\\com.example.robotarmh25_remote.app-main-45:\\menu\\activity_main_drawer.xml"
+    },
+    {
+        "merged": "C:\\Users\\alexr\\.gradle\\daemon\\8.9\\com.example.robotarmh25_remote.app-release-44:\\layout_app_bar_main.xml.flat",
+        "source": "C:\\Users\\alexr\\.gradle\\daemon\\8.9\\com.example.robotarmh25_remote.app-main-45:\\layout\\app_bar_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\alexr\\.gradle\\daemon\\8.9\\com.example.robotarmh25_remote.app-release-44:\\layout_activity_login.xml.flat",
+        "source": "C:\\Users\\alexr\\.gradle\\daemon\\8.9\\com.example.robotarmh25_remote.app-main-45:\\layout\\activity_login.xml"
+    },
+    {
+        "merged": "C:\\Users\\alexr\\.gradle\\daemon\\8.9\\com.example.robotarmh25_remote.app-release-44:\\drawable_ic_settings_remote.xml.flat",
+        "source": "C:\\Users\\alexr\\.gradle\\daemon\\8.9\\com.example.robotarmh25_remote.app-main-45:\\drawable\\ic_settings_remote.xml"
+    },
+    {
+        "merged": "C:\\Users\\alexr\\.gradle\\daemon\\8.9\\com.example.robotarmh25_remote.app-release-44:\\layout_activity_create_gamme.xml.flat",
+        "source": "C:\\Users\\alexr\\.gradle\\daemon\\8.9\\com.example.robotarmh25_remote.app-main-45:\\layout\\activity_create_gamme.xml"
+    },
+    {
+        "merged": "C:\\Users\\alexr\\.gradle\\daemon\\8.9\\com.example.robotarmh25_remote.app-release-44:\\drawable-anydpi-v24_ic_launcher_foreground.xml.flat",
+        "source": "C:\\Users\\alexr\\.gradle\\daemon\\8.9\\com.example.robotarmh25_remote.app-pngs-40:\\drawable-anydpi-v24\\ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "C:\\Users\\alexr\\.gradle\\daemon\\8.9\\com.example.robotarmh25_remote.app-release-44:\\layout_item_gamme.xml.flat",
+        "source": "C:\\Users\\alexr\\.gradle\\daemon\\8.9\\com.example.robotarmh25_remote.app-main-45:\\layout\\item_gamme.xml"
+    },
+    {
+        "merged": "C:\\Users\\alexr\\.gradle\\daemon\\8.9\\com.example.robotarmh25_remote.app-release-44:\\drawable_ic_close_fullscreen_black_24dp.xml.flat",
+        "source": "C:\\Users\\alexr\\.gradle\\daemon\\8.9\\com.example.robotarmh25_remote.app-main-45:\\drawable\\ic_close_fullscreen_black_24dp.xml"
+    },
+    {
+        "merged": "C:\\Users\\alexr\\.gradle\\daemon\\8.9\\com.example.robotarmh25_remote.app-release-44:\\drawable_button_background_gray.xml.flat",
+        "source": "C:\\Users\\alexr\\.gradle\\daemon\\8.9\\com.example.robotarmh25_remote.app-main-45:\\drawable\\button_background_gray.xml"
+    },
+    {
+        "merged": "C:\\Users\\alexr\\.gradle\\daemon\\8.9\\com.example.robotarmh25_remote.app-release-44:\\layout_item_selected_gamme.xml.flat",
+        "source": "C:\\Users\\alexr\\.gradle\\daemon\\8.9\\com.example.robotarmh25_remote.app-main-45:\\layout\\item_selected_gamme.xml"
+    },
+    {
+        "merged": "C:\\Users\\alexr\\.gradle\\daemon\\8.9\\com.example.robotarmh25_remote.app-release-44:\\mipmap-hdpi_ic_launcher_round.png.flat",
+        "source": "C:\\Users\\alexr\\.gradle\\daemon\\8.9\\com.example.robotarmh25_remote.app-main-45:\\mipmap-hdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "C:\\Users\\alexr\\.gradle\\daemon\\8.9\\com.example.robotarmh25_remote.app-release-44:\\layout_fragment_remote.xml.flat",
+        "source": "C:\\Users\\alexr\\.gradle\\daemon\\8.9\\com.example.robotarmh25_remote.app-main-45:\\layout\\fragment_remote.xml"
+    },
+    {
+        "merged": "C:\\Users\\alexr\\.gradle\\daemon\\8.9\\com.example.robotarmh25_remote.app-release-44:\\menu_main.xml.flat",
+        "source": "C:\\Users\\alexr\\.gradle\\daemon\\8.9\\com.example.robotarmh25_remote.app-main-45:\\menu\\main.xml"
+    },
+    {
+        "merged": "C:\\Users\\alexr\\.gradle\\daemon\\8.9\\com.example.robotarmh25_remote.app-release-44:\\layout_content_main.xml.flat",
+        "source": "C:\\Users\\alexr\\.gradle\\daemon\\8.9\\com.example.robotarmh25_remote.app-main-45:\\layout\\content_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\alexr\\.gradle\\daemon\\8.9\\com.example.robotarmh25_remote.app-release-44:\\mipmap-mdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\alexr\\.gradle\\daemon\\8.9\\com.example.robotarmh25_remote.app-main-45:\\mipmap-mdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\alexr\\.gradle\\daemon\\8.9\\com.example.robotarmh25_remote.app-release-44:\\layout_fragment_connect.xml.flat",
+        "source": "C:\\Users\\alexr\\.gradle\\daemon\\8.9\\com.example.robotarmh25_remote.app-main-45:\\layout\\fragment_connect.xml"
+    },
+    {
+        "merged": "C:\\Users\\alexr\\.gradle\\daemon\\8.9\\com.example.robotarmh25_remote.app-release-44:\\layout_fragment_config.xml.flat",
+        "source": "C:\\Users\\alexr\\.gradle\\daemon\\8.9\\com.example.robotarmh25_remote.app-main-45:\\layout\\fragment_config.xml"
+    }
+]
