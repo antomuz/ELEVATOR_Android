@@ -58,19 +58,15 @@ public class MainMenuActivity extends AppCompatActivity {
         SharedPreferences sp = getSharedPreferences(getString(R.string.MyPrefs), Context.MODE_PRIVATE);
         String macAddress = sp.getString(getString(R.string.EV3KEY), "");
 
-        if (!macAddress.isEmpty()) {
-            new Thread(() -> {
-                boolean connected = ConnectFragment.btCon.connectToEV3(macAddress);
-                runOnUiThread(() -> {
-                    if (connected) {
-                        Toast.makeText(this, "Robot connecté automatiquement", Toast.LENGTH_SHORT).show();
-                        buttonConnexionRobot.setText("Déconnexion Robot");
-                    } else {
-                        Toast.makeText(this, "Échec de la connexion automatique au robot", Toast.LENGTH_SHORT).show();
-                    }
-                });
-            }).start();
+        if (verif_conn(sp)) {
+            Toast.makeText(this, "Robot connecté automatiquement", Toast.LENGTH_SHORT).show();
+            buttonConnexionRobot.setText("Déconnexion Robot");
         }
+        else {
+            Toast.makeText(this, "Échec de la connexion automatique au robot", Toast.LENGTH_SHORT).show();
+            buttonConnexionRobot.setText("Connexion Robot");
+        }
+
 
         // Toggle Robot connection: Navigate to ConnectActivity which hosts ConnectFragment
         buttonConnexionRobot.setOnClickListener(new View.OnClickListener() {
@@ -128,6 +124,20 @@ public class MainMenuActivity extends AppCompatActivity {
             e.printStackTrace();
         }
     }*/
+
+    public boolean verif_conn (SharedPreferences sp) {
+        String macAddress = sp.getString(getString(R.string.EV3KEY), "");
+        final boolean[] connected = new boolean[1];
+        if (!macAddress.isEmpty()) {
+            new Thread(() -> {
+                connected[0] = ConnectFragment.btCon.connectToEV3(macAddress);
+            }).start();
+            return connected[0];
+        }
+        else {
+            return false;
+        }
+    }
     private void showScenarioPickerDialog() {
         DBHandler dbHandler = new DBHandler(this);
         List<Scenario> scenarioList = dbHandler.getAllScenarios();
@@ -149,15 +159,18 @@ public class MainMenuActivity extends AppCompatActivity {
     }
 
     private void sendScenarioOrder(int scenarioId) {
+        SharedPreferences sp = getSharedPreferences(getString(R.string.MyPrefs), Context.MODE_PRIVATE);
         try {
             DBHandler dbHandler = new DBHandler(this);
             // Étape 1 : Construire dynamiquement le JSON
             JSONObject json = dbHandler.construireJsonScenario(scenarioId);
 
-
             // Étape 2 : Envoyer le JSON via Bluetooth
-            BluetoothConnection btCon = BluetoothConnection.getInstance();
-            btCon.sendJsonToLejos(json);
+            if (verif_conn(sp))
+            {
+                BluetoothConnection btCon = BluetoothConnection.getInstance();
+                btCon.sendJsonToLejos(json);
+            }
 
             Toast.makeText(this, "Scénario envoyé", Toast.LENGTH_SHORT).show();
         } catch (JSONException | InterruptedException e) {
