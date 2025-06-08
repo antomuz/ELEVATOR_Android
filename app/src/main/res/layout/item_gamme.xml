@@ -13,18 +13,18 @@
         android:textSize="16sp"
         android:layout_height="wrap_content"/>
 
-    <ImageButton
-        android:id="@+id/btnEdit"
-        android:src="@android:drawable/ic_menu_edit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:contentDescription="Edit"/>
 
-    <ImageButton
-        android:id="@+id/btnDelete"
-        android:src="@android:drawable/ic_menu_delete"
+    <Button
+        android:id="@+id/btnEdit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:contentDescription="Delete"/>
+        android:text="Modifier" />
+
+    <Button
+        android:id="@+id/btnDelete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:text="Supprimer"/>
 
 </LinearLayout>
