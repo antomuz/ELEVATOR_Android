@@ -1,17 +1,18 @@
-package com.example.robotarmh25_remote;
+package com.example.robotarmh25_remote.ui.activities.gamme;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.ListView;
-import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.robotarmh25_remote.DBHandler;
+import com.example.robotarmh25_remote.R;
 import com.example.robotarmh25_remote.adapters.GammeAdapter;
 import com.example.robotarmh25_remote.models.Gamme;
-import com.example.robotarmh25_remote.ui.connect.ConnectFragment;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class GammeListActivity extends AppCompatActivity {
 

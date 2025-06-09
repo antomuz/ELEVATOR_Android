@@ -1,11 +1,11 @@
-package com.example.robotarmh25_remote;
+package com.example.robotarmh25_remote.ui.activities.scenario;
 
 import android.os.Bundle;
-import android.view.View;
 import android.widget.*;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.robotarmh25_remote.adapters.GammeAdapter;
+import com.example.robotarmh25_remote.DBHandler;
+import com.example.robotarmh25_remote.R;
 import com.example.robotarmh25_remote.adapters.SelectedGammeAdapter;
 import com.example.robotarmh25_remote.models.Gamme;
 import com.example.robotarmh25_remote.models.Scenario;

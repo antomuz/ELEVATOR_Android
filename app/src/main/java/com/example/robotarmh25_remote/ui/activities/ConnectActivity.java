@@ -1,7 +1,9 @@
-package com.example.robotarmh25_remote;
+package com.example.robotarmh25_remote.ui.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.example.robotarmh25_remote.R;
 import com.example.robotarmh25_remote.ui.connect.ConnectFragment;
 
 public class ConnectActivity extends AppCompatActivity {

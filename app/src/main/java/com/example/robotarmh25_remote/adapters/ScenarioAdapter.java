@@ -8,6 +8,7 @@ import android.view.*;
 import android.widget.*;
 import com.example.robotarmh25_remote.*;
 import com.example.robotarmh25_remote.models.Scenario;
+import com.example.robotarmh25_remote.ui.activities.scenario.EditScenarioActivity;
 
 import java.util.List;
 

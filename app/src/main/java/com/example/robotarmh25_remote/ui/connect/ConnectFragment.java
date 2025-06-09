@@ -5,7 +5,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Patterns;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,7 +15,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.example.robotarmh25_remote.MainMenuActivity;
+import com.example.robotarmh25_remote.ui.activities.MainMenuActivity;
 import com.example.robotarmh25_remote.R;
 import java.util.regex.Pattern;
 

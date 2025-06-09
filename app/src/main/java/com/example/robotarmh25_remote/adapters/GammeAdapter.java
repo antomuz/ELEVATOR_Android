@@ -8,14 +8,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.TextView;
 import com.example.robotarmh25_remote.DBHandler;
-import com.example.robotarmh25_remote.EditGammeActivity;
-import com.example.robotarmh25_remote.EditScenarioActivity;
+import com.example.robotarmh25_remote.ui.activities.gamme.EditGammeActivity;
 import com.example.robotarmh25_remote.models.Gamme;
 import com.example.robotarmh25_remote.R;
-import com.example.robotarmh25_remote.models.Scenario;
 
 import java.util.ArrayList;
 

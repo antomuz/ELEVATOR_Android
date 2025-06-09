@@ -1,4 +1,4 @@
-package com.example.robotarmh25_remote;
+package com.example.robotarmh25_remote.ui.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
@@ -7,6 +7,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.example.robotarmh25_remote.R;
 
 public class LoginActivity extends AppCompatActivity {
 

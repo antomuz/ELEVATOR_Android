@@ -1,4 +1,4 @@
-package com.example.robotarmh25_remote;
+package com.example.robotarmh25_remote.ui.activities.gamme;
 
 import android.os.Bundle;
 import android.text.InputType;
@@ -6,6 +6,9 @@ import android.widget.*;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.robotarmh25_remote.DBHandler;
+import com.example.robotarmh25_remote.R;
 import com.example.robotarmh25_remote.models.Action;
 import com.example.robotarmh25_remote.models.SelectedAction;
 import com.example.robotarmh25_remote.adapters.SelectedActionAdapter;
